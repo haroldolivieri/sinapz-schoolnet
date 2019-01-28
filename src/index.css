@@ -9,11 +9,25 @@ body {
     color: '#fff';
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
     transition-delay: background-color 5000s, color 5000s;
+}
+
+.hidden-for-mobile {
+    display: none;
+}
+.only-mobile {
+    display: flex;
+}
+@media only screen and (min-width: 768px) {
+    .hidden-for-mobile {
+        display: flex;
+    }
+    .only-mobile {
+        display: none;
+    }
 }

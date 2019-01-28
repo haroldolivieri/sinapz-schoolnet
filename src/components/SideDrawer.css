@@ -1,0 +1,13 @@
+.drawer {
+    position: relative;
+    z-index: 9999;
+    height: 100vh;
+    width: 80vw;
+    background-color: #3C4754;
+}
+
+@media only screen and (min-width: 768px) {
+    .drawer { 
+        width: 30vw;   
+    }
+}
