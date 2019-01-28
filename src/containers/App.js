@@ -19,7 +19,6 @@ const uitheme = createMuiTheme({
   }
 });
 
-
 class App extends Component {
 
   state = {
@@ -31,16 +30,18 @@ class App extends Component {
   };
 
   render() {
-    
+
     return (
       <MuiThemeProvider theme={uitheme}>
 
         <div className="app-frame">
-          
-          <ResponsiveDrawer
-            navDrawerOpened={this.state.navDrawerOpened}
-            toggleDrawer={this.toggleDrawer}
-          />
+
+          <div className="only-mobile">
+            <ResponsiveDrawer
+              navDrawerOpened={this.state.navDrawerOpened}
+              toggleDrawer={this.toggleDrawer}
+            />
+          </div>
 
           <div className="hidden-for-mobile">
             <SideDrawer />
