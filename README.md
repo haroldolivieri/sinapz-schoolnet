@@ -2,11 +2,12 @@
 Sinapz SchoolNet Dashboard
 
 # Stack
-React + Redux
-Redux-Saga
-Reselect
-ReactRouter
-Jest for tests
+- React + Redux
+- Redux-Saga
+- Reselect
+- ReactRouter
+- Material UI
+- Jest for tests
 
 # How to run
 Install the dependencies with `npm install`
