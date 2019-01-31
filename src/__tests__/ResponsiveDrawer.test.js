@@ -1,13 +1,10 @@
 import React from 'react';
-import ResponsiveDrawer from '../ResponsiveDrawer';
+import ResponsiveDrawer from '../components/ResponsiveDrawer';
 import { shallow } from 'enzyme';
 
 describe('Responsive Drawer', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<ResponsiveDrawer
-            navDrawerOpened={false}
-            toggleDrawer={jest.fn()}
-        />)
+        const wrapper = shallow(<ResponsiveDrawer/>)
         expect(wrapper).toMatchSnapshot()
     });
 
@@ -15,8 +12,8 @@ describe('Responsive Drawer', () => {
         const onCloseMock = jest.fn();
         const wrapper = shallow(
             <ResponsiveDrawer
-                navDrawerOpened={false}
-                toggleDrawer={onCloseMock}
+                opened={false}
+                onClose={onCloseMock}
             />,
         );
 

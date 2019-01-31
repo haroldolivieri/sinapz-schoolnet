@@ -1,9 +1,10 @@
+import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import SideDrawer from './SideDrawer';
-import React from 'react';
+import PropTypes from 'prop-types';
 
-const ResponsiveDrawer = ({ navDrawerOpened, toggleDrawer }) => (
-    <Drawer id="drawer" open={navDrawerOpened} onClose={toggleDrawer(false)}>
+const ResponsiveDrawer = ({ opened = false, onClose = function(){} }) => (
+    <Drawer id="drawer" open={opened} onClose={onClose(false)}>
         <div className="only-mobyle">
             <SideDrawer />
         </div>
@@ -11,3 +12,8 @@ const ResponsiveDrawer = ({ navDrawerOpened, toggleDrawer }) => (
 )
 
 export default ResponsiveDrawer
+
+ResponsiveDrawer.propTypes = {
+    opened: PropTypes.bool,
+    onClose: PropTypes.func,
+}

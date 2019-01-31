@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer Item renders correctly 1`] = `
+<WithStyles(ListItem)
+  button={true}
+  id="list-item"
+  key="Unknown"
+>
+  <WithStyles(ListItemIcon)>
+    <pure(MoveToInboxIcon) />
+  </WithStyles(ListItemIcon)>
+  <WithStyles(ListItemText)
+    primary="Unknown"
+  />
+</WithStyles(ListItem)>
+`;

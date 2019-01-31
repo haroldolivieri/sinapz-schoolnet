@@ -1,0 +1,26 @@
+.drawer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+    height: 100vh;
+    width: 60vw;
+    background-color: #3C4754;
+}
+
+@media only screen and (min-width: 900px) {
+    .drawer { 
+        width: 20vw;   
+    }
+}
+
+.title {
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
+    margin-bottom: 1em !important;
+}
+
+.list {
+    width: 100%;
+}

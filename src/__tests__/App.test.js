@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../App';
+import App from '../containers/App';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
@@ -10,7 +10,7 @@ describe('App', () => {
 
   it('responsive drawer starts closed', () => {
     const responsiveDrawer = shallow(<App />).find('ResponsiveDrawer')
-    expect(responsiveDrawer.props().navDrawerOpened).toBe(false)
+    expect(responsiveDrawer.props().opened).toBe(false)
   });
 
   it('hamburguer menu hidden', () => {

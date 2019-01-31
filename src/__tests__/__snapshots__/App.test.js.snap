@@ -360,8 +360,8 @@ exports[`App renders correctly 1`] = `
       className="only-mobile"
     >
       <ResponsiveDrawer
-        navDrawerOpened={false}
-        toggleDrawer={[Function]}
+        onClose={[Function]}
+        opened={false}
       />
     </div>
     <div
