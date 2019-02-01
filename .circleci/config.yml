@@ -2,26 +2,73 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8.9.4
+
+    working_directory: ~/cicd-circleci
+
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Setup Dependencies
-          command: npm install
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
           paths:
-            - ./node_modules
-      - run: # run tests
-          name: Run Test and Coverage
-          command: |
-            ./cc-test-reporter before-build
-            npm test -- --coverage
-            ./cc-test-reporter after-build --exit-code $?
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  test:
+    docker:
+      - image: circleci/node:8.9.4
+
+    working_directory: ~/cicd-circleci
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn test
+workflows:
+  version: 2
+  build-and-deploy-on-hold:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - test:
+          requires:
+            - build
+
+      - hold:
+          type: approval
+          requires:
+            - test
+
+      - deploy-development:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: develop
+
+      - deploy-prod:
+          requires:
+            - build
+            - test
+            - hold
+          filters:
+            branches:
+              only: master
