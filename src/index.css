@@ -23,7 +23,7 @@ input:-webkit-autofill:active {
 .only-mobile {
     display: flex;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
     .hidden-for-mobile {
         display: flex;
     }

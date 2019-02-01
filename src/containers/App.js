@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ResponsiveDrawer from '../components/ResponsiveDrawer'
 import SideDrawer from '../components/SideDrawer';
-import './App.css'
+import '../css/App.css'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -38,8 +38,8 @@ class App extends Component {
 
           <div className="only-mobile">
             <ResponsiveDrawer
-              navDrawerOpened={this.state.navDrawerOpened}
-              toggleDrawer={this.toggleDrawer}
+              opened={this.state.navDrawerOpened}
+              onClose={this.toggleDrawer}
             />
           </div>
 

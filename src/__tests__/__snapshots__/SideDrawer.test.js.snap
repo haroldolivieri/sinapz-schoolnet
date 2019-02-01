@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Side Drawer renders correctly 1`] = `
+<div
+  className="drawer"
+>
+  <AvatarImage
+    url="https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765"
+  />
+  <WithStyles(Typography)
+    className="title"
+  >
+    Escola Anônima
+  </WithStyles(Typography)>
+  <div
+    className="list"
+  >
+    <DrawerItem
+      text="Dashboard"
+    />
+    <DrawerItem
+      text="Agenda"
+    />
+    <DrawerItem
+      text="Filiais"
+    />
+    <DrawerItem
+      text="Professores"
+    />
+    <DrawerItem
+      text="Variáveis da prova"
+    />
+    <DrawerItem
+      text="Matérias disponíveis"
+    />
+  </div>
+</div>
+`;

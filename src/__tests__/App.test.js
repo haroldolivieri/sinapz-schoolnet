@@ -1,26 +1,21 @@
 import React from 'react';
-import App from '../App';
-import { mount, shallow } from 'enzyme';
+import App from '../containers/App';
+import { shallow } from 'enzyme';
 
 describe('App', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<App />)
     expect(wrapper).toMatchSnapshot()
   });
-  
-  it('side drawer renders correctly', () => {
-    const sideDrawer = mount(<App />).find('SideDrawer')
-    expect(sideDrawer).toMatchSnapshot()
-  });
 
-  it('responsive drawer starts close', () => {
+  it('responsive drawer starts closed', () => {
     const responsiveDrawer = shallow(<App />).find('ResponsiveDrawer')
-    expect(responsiveDrawer.props().navDrawerOpened).toBe(false)
+    expect(responsiveDrawer.props().opened).toBe(false)
   });
 
   it('hamburguer menu hidden', () => {
     const wrapper = shallow(<App />).find('ResponsiveDrawer')
     const menu = wrapper.find('IconButton')
-    expect(menu).toMatchSnapshot()
+    expect(menu).toHaveLength(0);
   });
 });
