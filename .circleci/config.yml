@@ -36,3 +36,11 @@ jobs:
           - v1-dependencies-
 
       - run: npm test
+workflows:
+  version: 2
+  build-and-deploy-on-hold:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
