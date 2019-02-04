@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout renders correctly 1`] = `
+<div
+  class="app-frame"
+>
+  <div
+    className="only-mobile"
+  >
+    <ResponsiveDrawer
+      onClose={[Function]}
+      opened={false}
+    />
+  </div>
+  <div
+    className="hidden-for-mobile"
+  >
+    <SideDrawer />
+  </div>
+  <main
+    className="main-content"
+  >
+    <div
+      className="toolbar"
+    >
+      <div
+        className="only-mobile"
+      >
+        <WithStyles(IconButton)
+          aria-label="Open drawer"
+          onClick={[Function]}
+        >
+          <pure(MenuIcon) />
+        </WithStyles(IconButton)>
+      </div>
+    </div>
+    <div />
+  </main>
+</div>
+`;
