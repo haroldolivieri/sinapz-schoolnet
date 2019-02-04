@@ -353,47 +353,44 @@ exports[`App renders correctly 1`] = `
     }
   }
 >
-  <div
-    className="app-frame"
+  <Connect(ConnectedRouterWithContext)
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   >
-    <div
-      className="only-mobile"
-    >
-      <ResponsiveDrawer
-        onClose={[Function]}
-        opened={false}
-      />
-    </div>
-    <div
-      className="hidden-for-mobile"
-    >
-      <SideDrawer />
-    </div>
-    <main
-      className="main-content"
-    >
-      <div
-        className="toolbar"
-      >
-        <div
-          className="only-mobile"
-        >
-          <WithStyles(IconButton)
-            aria-label="Open drawer"
-            onClick={[Function]}
-          >
-            <pure(MenuIcon) />
-          </WithStyles(IconButton)>
-        </div>
-      </div>
-      <div>
-        <WithStyles(Typography)
-          paragraph={true}
-        >
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-        </WithStyles(Typography)>
-      </div>
-    </main>
-  </div>
+    <MainLayout>
+      <Switch>
+        <Route
+          component={[Function]}
+          path="/"
+        />
+        <Route
+          component={[Function]}
+          path="/branchs"
+        />
+        <Route
+          component={[Function]}
+          path="/teachers"
+        />
+      </Switch>
+    </MainLayout>
+  </Connect(ConnectedRouterWithContext)>
 </MuiThemeProviderOld>
 `;
