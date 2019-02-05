@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import ResponsiveDrawer from '../components/ResponsiveDrawer'
-import SideDrawer from '../components/SideDrawer';
+import { ResponsiveDrawer, SideDrawer } from '../components'
+import { loadInitalData } from '../menu/actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import '../css/MainLayout.css'
 
 class MainLayout extends Component {
 
   state = {
-    navDrawerOpened: false
+    navDrawerOpened: false,
+    selectedItem: 'dashboard'
   };
 
   toggleDrawer = (open) => () => {
     this.setState({ navDrawerOpened: open });
   };
 
+  componentWillMount() {
+    this.props.loadInitalData()
+  }
+
   render() {
     return (
-      <div class="app-frame">
+      <div className="app-frame">
 
         <div className="only-mobile">
           <ResponsiveDrawer
@@ -54,4 +61,5 @@ class MainLayout extends Component {
   }
 }
 
-export default MainLayout;
+const mapDispatchToProps = dispatch => bindActionCreators({ loadInitalData }, dispatch)
+export default connect(null, mapDispatchToProps)(MainLayout)
