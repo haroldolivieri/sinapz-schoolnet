@@ -11,7 +11,7 @@ export class MainLayout extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.props.loadInitalData()
   }
 

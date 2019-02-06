@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/haroldolivieri/sinapz-schoolnet.svg?style=svg)](https://circleci.com/gh/haroldolivieri/sinapz-schoolnet)
+
 # sinapz-schoolnet
 Sinapz SchoolNet Dashboard
 
