@@ -2,7 +2,6 @@ import React from 'react';
 import { MainLayout } from '../containers/MainLayout';
 import { shallow } from 'enzyme';
 import { ResponsiveDrawer } from '../components';
-import { IconButton } from '@material-ui/core';
 
 let wrapper = shallow(<MainLayout loadInitalData={function () { }} />)
 
