@@ -1,6 +1,7 @@
 import React from 'react';
 import { DrawerItem } from '../components/SideDrawer';
 import { shallow } from 'enzyme';
+import { ListItem } from '@material-ui/core';
 
 describe('Drawer Item', () => {
     it('renders correctly', () => {
@@ -14,7 +15,7 @@ describe('Drawer Item', () => {
             <DrawerItem action={onClickMock}/>,
         );
 
-        wrapper.find('#list-item').simulate('click');
+        wrapper.find(ListItem).simulate('click');
 
         expect(onClickMock).toHaveBeenCalledTimes(1);
     });

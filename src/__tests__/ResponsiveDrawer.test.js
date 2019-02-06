@@ -1,6 +1,7 @@
 import React from 'react';
 import ResponsiveDrawer from '../components/ResponsiveDrawer';
 import { shallow } from 'enzyme';
+import { Drawer } from '@material-ui/core';
 
 describe('Responsive Drawer', () => {
     it('renders correctly', () => {
@@ -17,7 +18,7 @@ describe('Responsive Drawer', () => {
             />,
         );
 
-        wrapper.find('#drawer').simulate('close');
+        wrapper.find(Drawer).simulate('close');
 
         expect(onCloseMock).toHaveBeenCalledTimes(1);
         expect(onCloseMock).toHaveBeenCalledWith(false);

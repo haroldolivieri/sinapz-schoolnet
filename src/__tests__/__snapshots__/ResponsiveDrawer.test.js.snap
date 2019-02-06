@@ -8,7 +8,7 @@ exports[`Responsive Drawer renders correctly 1`] = `
   <div
     className="only-mobyle"
   >
-    <SideDrawer />
+    <withRouter(Connect(SideDrawer)) />
   </div>
 </WithStyles(Drawer)>
 `;

@@ -375,11 +375,16 @@ exports[`App renders correctly 1`] = `
       }
     }
   >
-    <MainLayout>
+    <Connect(MainLayout)>
       <Switch>
         <Route
           component={[Function]}
+          exact={true}
           path="/"
+        />
+        <Route
+          component={[Function]}
+          path="/agenda"
         />
         <Route
           component={[Function]}
@@ -389,8 +394,27 @@ exports[`App renders correctly 1`] = `
           component={[Function]}
           path="/teachers"
         />
+        <Route
+          component={[Function]}
+          path="/assessment-variables"
+        />
+        <Route
+          component={[Function]}
+          path="/subjects"
+        />
+        <Route
+          component={[Function]}
+          path="/segments"
+        />
+        <Route
+          component={[Function]}
+          path="/help"
+        />
+        <Route
+          component={[Function]}
+        />
       </Switch>
-    </MainLayout>
+    </Connect(MainLayout)>
   </Connect(ConnectedRouterWithContext)>
 </MuiThemeProviderOld>
 `;

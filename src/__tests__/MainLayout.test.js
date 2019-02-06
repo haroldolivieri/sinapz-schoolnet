@@ -1,21 +1,18 @@
 import React from 'react';
-import MainLayout from '../containers/MainLayout';
+import { MainLayout } from '../containers/MainLayout';
 import { shallow } from 'enzyme';
+import { ResponsiveDrawer } from '../components';
+
+let wrapper = shallow(<MainLayout loadInitalData={function () { }} />)
 
 describe('MainLayout', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<MainLayout />)
     expect(wrapper).toMatchSnapshot()
   });
 
   it('responsive drawer starts closed', () => {
-    const responsiveDrawer = shallow(<MainLayout />).find('ResponsiveDrawer')
-    expect(responsiveDrawer.props().opened).toBe(false)
-  });
+    const responsiveDrawer = wrapper.find(ResponsiveDrawer)
 
-  it('hamburguer menu hidden', () => {
-    const wrapper = shallow(<MainLayout />).find('ResponsiveDrawer')
-    const menu = wrapper.find('IconButton')
-    expect(menu).toHaveLength(0);
+    expect(responsiveDrawer.props().opened).toBe(false)
   });
 });

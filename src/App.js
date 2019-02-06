@@ -3,8 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './store';
 import MainLayout from './containers/MainLayout';
-import NotFound from './components/NotFound'
-
+import { NotFound, NotImplementedYet } from './components'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const uitheme = createMuiTheme({
@@ -25,9 +24,15 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <MainLayout>
             <Switch>
-              <Route path="/" component={NotFound} />
-              <Route path="/branchs" component={NotFound} />
-              <Route path="/teachers" component={NotFound} />
+              <Route exact path="/" component={NotImplementedYet} />
+              <Route path="/agenda" component={NotImplementedYet} />
+              <Route path="/branchs" component={NotImplementedYet} />
+              <Route path="/teachers" component={NotImplementedYet} />
+              <Route path="/assessment-variables" component={NotImplementedYet} />
+              <Route path="/subjects" component={NotImplementedYet} />
+              <Route path="/segments" component={NotImplementedYet} />
+              <Route path="/help" component={NotImplementedYet} />
+              <Route component={NotFound} />
             </Switch>
           </MainLayout>
         </ConnectedRouter>
