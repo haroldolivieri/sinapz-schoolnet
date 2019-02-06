@@ -5,33 +5,40 @@ exports[`Side Drawer renders correctly 1`] = `
   className="drawer"
 >
   <AvatarImage
+    alt="Anonymous"
     url="https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765"
   />
-  <WithStyles(Typography)
+  <span
     className="title"
   >
-    Escola Anônima
-  </WithStyles(Typography)>
+    Anonymous
+  </span>
   <div
     className="list"
   >
     <DrawerItem
+      action={[Function]}
+      icon={
+        <ItemIcon
+          alt="Dashboard"
+          img="dashboard.svg"
+        />
+      }
+      id="drawer-item"
+      key="Dashboard"
       text="Dashboard"
     />
     <DrawerItem
+      action={[Function]}
+      icon={
+        <ItemIcon
+          alt="Agenda"
+          img="undefined.svg"
+        />
+      }
+      id="drawer-item"
+      key="Agenda"
       text="Agenda"
-    />
-    <DrawerItem
-      text="Filiais"
-    />
-    <DrawerItem
-      text="Professores"
-    />
-    <DrawerItem
-      text="Variáveis da prova"
-    />
-    <DrawerItem
-      text="Matérias disponíveis"
     />
   </div>
 </div>

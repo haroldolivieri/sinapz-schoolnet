@@ -19,7 +19,7 @@ const items = [
     },
     {
         name: "Agenda",
-        icon: "agenda.svg",
+        icon: "undefined.svg",
         path: "/agenda"
     },
     {
@@ -39,17 +39,17 @@ const items = [
     },
     {
         name: "Matérias disponiveis",
-        icon: "subjects.svg",
+        icon: "undefined.svg",
         path: "/subjects"
     },
     {
         name: "Segmentos",
-        icon: "segments.svg",
+        icon: "undefined.svg",
         path: "/segments"
     },
     {
         name: "Ajuda",
-        icon: "help.svg",
+        icon: "undefined.svg",
         path: "/help"
     }
 ]

@@ -8,8 +8,10 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
-  it('renders MainLayout', () => {
-    const mainLayout = shallow(<App />).find('MainLayout')
-    expect(mainLayout.exists()).toEqual(true)
+  it('renders main layout', () => {
+    const wrapper = shallow(<App />)
+    const mainLayoutWrapper = wrapper.find('Connect(MainLayout)')
+
+    expect(mainLayoutWrapper.exists()).toBe(true)
   });
 });

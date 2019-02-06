@@ -7,7 +7,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import '../css/MainLayout.css'
 
-class MainLayout extends Component {
+export class MainLayout extends Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.props.loadInitalData()
+  }
 
   state = {
     navDrawerOpened: false,
@@ -17,10 +23,6 @@ class MainLayout extends Component {
   toggleDrawer = (open) => () => {
     this.setState({ navDrawerOpened: open });
   };
-
-  componentWillMount() {
-    this.props.loadInitalData()
-  }
 
   render() {
     return (

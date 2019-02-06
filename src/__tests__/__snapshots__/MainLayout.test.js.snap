@@ -2,7 +2,7 @@
 
 exports[`MainLayout renders correctly 1`] = `
 <div
-  class="app-frame"
+  className="app-frame"
 >
   <div
     className="only-mobile"
@@ -15,7 +15,7 @@ exports[`MainLayout renders correctly 1`] = `
   <div
     className="hidden-for-mobile"
   >
-    <SideDrawer />
+    <withRouter(Connect(SideDrawer)) />
   </div>
   <main
     className="main-content"

@@ -5,12 +5,15 @@ exports[`Drawer Item renders correctly 1`] = `
   button={true}
   id="list-item"
   key="Unknown"
+  onClick={[Function]}
 >
   <WithStyles(ListItemIcon)>
-    <pure(MoveToInboxIcon) />
+    <ItemIcon />
   </WithStyles(ListItemIcon)>
-  <WithStyles(ListItemText)
-    primary="Unknown"
-  />
+  <p
+    className="item-text"
+  >
+    Unknown
+  </p>
 </WithStyles(ListItem)>
 `;

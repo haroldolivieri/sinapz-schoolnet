@@ -4,16 +4,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { selectItem } from '../menu/actions'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router'
 import '../css/SideDrawer.css'
-import '../css/AvatarImage.css'
 
 export const DrawerItem = ({ text = "Unknown", icon = <ItemIcon />, action = function () { } }) => (
     <ListItem id="list-item" button key={text} onClick={action}>
         <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText primary={text} />
+        <p className="item-text">{text}</p>
     </ListItem>
 )
 DrawerItem.propTypes = {
@@ -22,53 +21,54 @@ DrawerItem.propTypes = {
     action: PropTypes.func
 }
 
-const ItemIcon = ({ img = "undefined.svg", alt = "" }) => (
-    <img src={require(`../images/${img}`)} alt={`image-${alt}`} />
+export const ItemIcon = ({ img = "undefined.svg", alt = "" }) => (
+    <img src={require(`../images/${img}`)} alt={alt} />
 )
 
-const SideDrawer = ({
-    url = "https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765",
-    name = "Escola Anônima",
+export const SideDrawer = ({
+    history,
     menuItems = [],
-    selectItem = function () { }
+    schoolnetInfo = {
+        name: "Anonymous",
+        photo: "https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765"
+    }
 }) => {
 
-    const handleItemSelected = pathTo => {
-        selectItem(pathTo)
+    const handleItemSelected = (pathTo) => {
+        history.push(pathTo)
     }
 
     const AvatarImage = ({ url, alt = "" }) => (
-        <img src={url} className="avatar" alt={`image-${alt}`} />
+        <img src={url} className="avatar" alt={alt} />
     )
 
     return (
         <div className="drawer" >
-            <AvatarImage url={url} alt={name} />
-            <Typography className="title">{name}</Typography>
+            <AvatarImage url={schoolnetInfo.photo} alt={schoolnetInfo.name} />
+            <span className="title">{schoolnetInfo.name}</span>
             <div className="list">
                 {menuItems.map(item => (
                     <DrawerItem
+                        id="drawer-item"
+                        key={item.name}
                         text={item.name}
                         icon={<ItemIcon img={item.icon} alt={item.name} />}
-                        action={handleItemSelected(item.path)} />
+                        action={handleItemSelected.bind(this, item.path)} />
                 ))}
             </div>
         </div>
     )
 }
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators({ selectItem }, dispatch)
-
 const mapStateToProps = state => ({
-    schoolnetInfo: state.menu.schoolnetInfo,
-    menuItems: state.menu.menuItems
+    schoolnetInfo: state.menu.get('schoolnetInfo'),
+    menuItems: state.menu.get('menuItems')
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideDrawer);
+export default compose(withRouter, connect(mapStateToProps))(SideDrawer);
+
 SideDrawer.propTypes = {
-    url: PropTypes.string,
-    name: PropTypes.string,
+    history: PropTypes.object,
     menuItems: PropTypes.array,
-    selectItem: PropTypes.func
+    schoolnetInfo: PropTypes.object,
 }
