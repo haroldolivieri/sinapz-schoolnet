@@ -9,26 +9,26 @@ import {
     SET_SCHOOLNET_INFO
 } from './types'
 
-function* fetchInitialData() {
-    yield fork(fetchMenuItems)
-    yield fork(fetchSchoolnetInfo)
+function* fetchInitialDataSaga() {
+    yield fork(fetchMenuItemsSaga)
+    yield fork(fetchSchoolnetInfoSaga)
 }
 
-function* fetchMenuItems() {
+function* fetchMenuItemsSaga() {
     const response = yield call(getMenuItems)
     yield put({ type: SET_MENU_ITEMS, items: response })
 }
 
-function* fetchSchoolnetInfo() {
+function* fetchSchoolnetInfoSaga() {
     const response = yield call(getSchoolnetInfo)
     yield put({ type: SET_SCHOOLNET_INFO, info: response })
 }
 
-function* navigateToSelectedItem(action) {
+function* navigateToSelectedItemSaga(action) {
     yield put(push(action.pathTo))
 }
 
 export default function* menuSaga() {
-    yield takeLatest(LOAD_INITAL_DATA, fetchInitialData)
-    yield takeLatest(SELECT_ITEM_FROM_MENU, navigateToSelectedItem)
+    yield takeLatest(LOAD_INITAL_DATA, fetchInitialDataSaga)
+    yield takeLatest(SELECT_ITEM_FROM_MENU, navigateToSelectedItemSaga)
 }

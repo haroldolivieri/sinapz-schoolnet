@@ -5,7 +5,7 @@ import { loadInitalData } from '../menu/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import '../css/MainLayout.css'
-import SearchInput from '../components/SearchInput'
+import SearchInput from '../containers/SearchInput'
 
 export class MainLayout extends Component {
     constructor(props) {
