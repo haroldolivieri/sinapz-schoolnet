@@ -29,6 +29,7 @@ exports[`MainLayout renders correctly 1`] = `
         onClick={[Function]}
       />
       <img
+        alt="logo"
         className="logo"
         src="logo.png"
       />
