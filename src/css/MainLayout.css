@@ -34,21 +34,6 @@
     width: 10em;
 }
 
-.toolbar-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.hamburguer-menu {
-    width: 2em;
-    height: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .search {
     margin-top: 1em;
     width: 100%;
