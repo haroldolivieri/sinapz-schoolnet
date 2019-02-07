@@ -1,55 +1,56 @@
 export const getSchoolnetInfo = () =>
-    new Promise((resolve) => {
+    new Promise(resolve => {
         resolve({
-            name: "Escola Elite",
-            photo: "https://static.wirtualnemedia.pl/media/top/SzkoladlaElity-655.jpg"
+            name: 'Escola Elite',
+            photo:
+                'https://static.wirtualnemedia.pl/media/top/SzkoladlaElity-655.jpg'
         })
     })
 
 export const getMenuItems = () =>
-    new Promise((resolve) => {
+    new Promise(resolve => {
         resolve(items)
     })
 
 const items = [
     {
-        name: "Dashboard",
-        icon: "dashboard.svg",
-        path: "/"
+        name: 'Dashboard',
+        icon: 'dashboard.svg',
+        path: '/'
     },
     {
-        name: "Agenda",
-        icon: "undefined.svg",
-        path: "/agenda"
+        name: 'Agenda',
+        icon: 'undefined.svg',
+        path: '/agenda'
     },
     {
-        name: "Filiais",
-        icon: "branchs.svg",
-        path: "/branchs"
+        name: 'Filiais',
+        icon: 'branchs.svg',
+        path: '/branchs'
     },
     {
-        name: "Professores",
-        icon: "teachers.svg",
-        path: "/teachers"
+        name: 'Professores',
+        icon: 'teachers.svg',
+        path: '/teachers'
     },
     {
-        name: "Variáveis da prova",
-        icon: "variables.svg",
-        path: "/assessment-variables"
+        name: 'Variáveis da prova',
+        icon: 'variables.svg',
+        path: '/assessment-variables'
     },
     {
-        name: "Matérias disponiveis",
-        icon: "undefined.svg",
-        path: "/subjects"
+        name: 'Matérias disponiveis',
+        icon: 'undefined.svg',
+        path: '/subjects'
     },
     {
-        name: "Segmentos",
-        icon: "undefined.svg",
-        path: "/segments"
+        name: 'Segmentos',
+        icon: 'undefined.svg',
+        path: '/segments'
     },
     {
-        name: "Ajuda",
-        icon: "undefined.svg",
-        path: "/help"
+        name: 'Ajuda',
+        icon: 'undefined.svg',
+        path: '/help'
     }
 ]

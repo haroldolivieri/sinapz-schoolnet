@@ -23,18 +23,25 @@ exports[`MainLayout renders correctly 1`] = `
     <div
       className="toolbar"
     >
-      <div
+      <pure(MenuIcon)
+        aria-label="Open drawer"
         className="only-mobile"
+        onClick={[Function]}
+      />
+      <img
+        alt="logo"
+        className="logo"
+        src="logo.png"
+      />
+      <div
+        className="search"
       >
-        <WithStyles(IconButton)
-          aria-label="Open drawer"
-          onClick={[Function]}
-        >
-          <pure(MenuIcon) />
-        </WithStyles(IconButton)>
+        <SearchInput />
       </div>
     </div>
-    <div />
+    <div
+      className="children-content"
+    />
   </main>
 </div>
 `;

@@ -1,12 +1,13 @@
 .main-content {
-    background-color: "#FAF8F8";
+    margin: 1em;
+    background-color: '#FAF8F8';
     height: 100vh;
     width: 100vw;
     padding: 0 1em 0 1em;
 }
 @media only screen and (min-width: 900px) {
     .main-content {
-        width: 80vw
+        width: 80vw;
     }
 }
 
@@ -16,7 +17,34 @@
 }
 
 .toolbar {
-    align-items: center;
     display: flex;
-    height: 5em;
+    flex-direction: row;
+    height: 8em;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+@media only screen and (min-width: 900px) {
+    .toolbar {
+        height: 5em;
+    }
+}
+
+.logo {
+    width: 10em;
+}
+
+.search {
+    margin-top: 1em;
+    width: 100%;
+}
+@media only screen and (min-width: 900px) {
+    .search {
+        margin-top: 0;
+        width: 50%;
+    }
+}
+
+.children-content {
+    margin-top: 2em;
 }
