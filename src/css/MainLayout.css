@@ -22,7 +22,7 @@
 .toolbar {
     display: flex;
     flex-direction: row;
-    height: 20%;
+    height: 25%;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -49,7 +49,7 @@
 }
 
 .children-content {
-    height: 80%;
+    height: 75%;
 }
 @media only screen and (min-width: 900px) {
     .children-content {
