@@ -32,7 +32,11 @@ export class MainLayout extends Component {
                     aria-label="Open drawer"
                 />
 
-                <img className="logo" src={require(`../images/logo.png`)} />
+                <img
+                    className="logo"
+                    alt="logo"
+                    src={require(`../images/logo.png`)}
+                />
 
                 <div className="search">
                     <SearchInput />
