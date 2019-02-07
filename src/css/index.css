@@ -3,8 +3,8 @@
 body {
     margin: 0;
     padding: 0;
-    font: 16px "Montserrat", sans-serif; 
-    font-weight: 400; 
+    font: 16px 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 ::placeholder {
@@ -15,7 +15,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
     transition-delay: background-color 5000s, color 5000s;
 }
 
@@ -23,13 +24,13 @@ input:-webkit-autofill:active {
     display: none;
 }
 .only-mobile {
-    display: flex;
+    display: block !important;
 }
 @media only screen and (min-width: 900px) {
     .hidden-for-mobile {
         display: flex;
     }
     .only-mobile {
-        display: none;
+        display: none !important;
     }
 }

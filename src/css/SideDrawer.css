@@ -6,18 +6,24 @@
     z-index: 9999;
     height: 100vh;
     width: 70vw;
-    background-color: #3C4754;
+    background-color: #3c4754;
 }
 @media only screen and (min-width: 900px) {
-    .drawer { 
-        width: 20vw;   
+    .drawer {
+        width: 30vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .drawer {
+        width: 20vw;
     }
 }
 
 .avatar {
     border-radius: 50%;
-    width:8em;
-    height:8em;
+    width: 8em;
+    height: 8em;
     margin: 1.5em;
 }
 

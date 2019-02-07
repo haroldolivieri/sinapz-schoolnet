@@ -1,10 +1,10 @@
-import * as types from './types';
+import * as types from './types'
 
 export const loadInitalData = () => ({
-  type: types.LOAD_INITAL_DATA
-});
+    type: types.LOAD_INITAL_DATA
+})
 
 export const selectItem = pathTo => ({
-  type: types.SELECT_ITEM_FROM_MENU,
-  pathTo
-});
+    type: types.SELECT_ITEM_FROM_MENU,
+    pathTo
+})

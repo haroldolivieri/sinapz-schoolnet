@@ -1,4 +1,4 @@
-import { put, call, takeLatest, fork} from 'redux-saga/effects'
+import { put, call, takeLatest, fork } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { getMenuItems, getSchoolnetInfo } from './services'
 
