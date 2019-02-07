@@ -1,13 +1,17 @@
 .main-content {
-    margin: 1em;
+    margin: 0 1em 0 1em;
     background-color: '#FAF8F8';
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    background-color: aqua;
+    display: flex;
     padding: 0 1em 0 1em;
+    flex-direction: column;
+    width: 100vw;
 }
 @media only screen and (min-width: 900px) {
     .main-content {
         width: 80vw;
+        height: 100vh;
     }
 }
 
@@ -19,14 +23,14 @@
 .toolbar {
     display: flex;
     flex-direction: row;
-    height: 8em;
+    height: 20%;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 @media only screen and (min-width: 900px) {
     .toolbar {
-        height: 5em;
+        height: 15%;
     }
 }
 
@@ -46,5 +50,10 @@
 }
 
 .children-content {
-    margin-top: 2em;
+    height: 80%;
+}
+@media only screen and (min-width: 900px) {
+    .children-content {
+        height: 85%;
+    }
 }
