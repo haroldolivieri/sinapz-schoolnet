@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     z-index: 9999;
     height: 100vh;
     width: 70vw;
@@ -11,9 +10,9 @@
 @media only screen and (min-width: 900px) {
     .drawer {
         width: 30vw;
+        position: fixed;
     }
 }
-
 @media only screen and (min-width: 1200px) {
     .drawer {
         width: 20vw;

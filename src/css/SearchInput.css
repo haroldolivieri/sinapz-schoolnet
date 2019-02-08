@@ -1,15 +1,19 @@
 .searchbar {
-    display: flex;
     width: 100%;
 }
 
 .results {
     z-index: 9999;
     position: fixed;
+    width: 100%;
+}
+@media only screen and (min-width: 900px) {
+    .results {        
+        width: 30vw;
+    }
 }
 
 .paper {
-    position: absolute;
     z-index: 1;
     left: 0;
     right: 0;

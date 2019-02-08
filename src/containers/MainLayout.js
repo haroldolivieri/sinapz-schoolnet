@@ -59,15 +59,11 @@ export class MainLayout extends Component {
                     <SideDrawer />
                 </div>
 
-                <main className="main-content">
-                    {/* Toolbar with hamburguer menu, logo and search input */}
-                    {this.renderToolbar()}
+                {/* Toolbar with hamburguer menu, logo and search input */}
+                {this.renderToolbar()}
 
-                    {/* Content injected by router */}
-                    <div className="children-content">
-                        {this.props.children}
-                    </div>
-                </main>
+                {/* Content injected by router */}
+                <div className="children-content">{this.props.children}</div>
             </div>
         )
     }

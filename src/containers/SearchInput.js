@@ -61,7 +61,9 @@ export class SearchInput extends Component {
 
     onResultClicked = (type, id) => {
         //navigate to right page
-        this.setStateForInput('')
+        this.setState({ searchInput: '' }, () => {
+            this.autocompleteSearch(this.state.searchInput)
+        })
     }
 
     setStateForInput = searchInput => {
@@ -87,18 +89,20 @@ export class SearchInput extends Component {
                         endAdornment: <SearchRounded />
                     }}
                 />
-                <div className="results">
-                    {this.props.results.map(item => (
-                        <SearchResultItem
-                            name={item.name}
-                            description={item.description}
-                            action={this.onResultClicked.bind(
-                                this,
-                                item.type,
-                                item.id
-                            )}
-                        />
-                    ))}
+                <div className="searchbar">
+                    <div className="results">
+                        {this.props.results.map(item => (
+                            <SearchResultItem
+                                name={item.name}
+                                description={item.description}
+                                action={this.onResultClicked.bind(
+                                    this,
+                                    item.type,
+                                    item.id
+                                )}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         )
