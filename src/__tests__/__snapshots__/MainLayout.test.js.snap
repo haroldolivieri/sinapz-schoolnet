@@ -17,31 +17,27 @@ exports[`MainLayout renders correctly 1`] = `
   >
     <withRouter(Connect(SideDrawer)) />
   </div>
-  <main
-    className="main-content"
+  <div
+    className="toolbar"
   >
-    <div
-      className="toolbar"
-    >
-      <pure(MenuIcon)
-        aria-label="Open drawer"
-        className="only-mobile"
-        onClick={[Function]}
-      />
-      <img
-        alt="logo"
-        className="logo"
-        src="logo.png"
-      />
-      <div
-        className="search"
-      >
-        <SearchInput />
-      </div>
-    </div>
-    <div
-      className="children-content"
+    <pure(MenuIcon)
+      aria-label="Open drawer"
+      className="only-mobile"
+      onClick={[Function]}
     />
-  </main>
+    <img
+      alt="logo"
+      className="logo"
+      src="logo.png"
+    />
+    <div
+      className="search"
+    >
+      <Connect(SearchInput) />
+    </div>
+  </div>
+  <div
+    className="children-content"
+  />
 </div>
 `;

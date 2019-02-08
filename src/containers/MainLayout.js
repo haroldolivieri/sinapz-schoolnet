@@ -5,7 +5,7 @@ import { loadInitalData } from '../menu/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import '../css/MainLayout.css'
-import SearchInput from '../components/SearchInput'
+import SearchInput from '../containers/SearchInput'
 
 export class MainLayout extends Component {
     constructor(props) {
@@ -59,15 +59,11 @@ export class MainLayout extends Component {
                     <SideDrawer />
                 </div>
 
-                <main className="main-content">
-                    {/* Toolbar with hamburguer menu, logo and search input */}
-                    {this.renderToolbar()}
+                {/* Toolbar with hamburguer menu, logo and search input */}
+                {this.renderToolbar()}
 
-                    {/* Content injected by router */}
-                    <div className="children-content">
-                        {this.props.children}
-                    </div>
-                </main>
+                {/* Content injected by router */}
+                <div className="children-content">{this.props.children}</div>
             </div>
         )
     }

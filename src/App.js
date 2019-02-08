@@ -3,7 +3,17 @@ import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from './store'
 import MainLayout from './containers/MainLayout'
-import { NotFound, NotImplementedYet } from './components'
+import {
+    NotFound,
+    Dashboard,
+    Agenda,
+    Branchs,
+    Teachers,
+    Variables,
+    Subjects,
+    Segments,
+    Help
+} from './components'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 const uitheme = createMuiTheme({
@@ -24,36 +34,17 @@ class App extends Component {
                 <ConnectedRouter history={history}>
                     <MainLayout>
                         <Switch>
-                            <Route
-                                exact
-                                path="/"
-                                component={NotImplementedYet}
-                            />
-                            <Route
-                                path="/agenda"
-                                component={NotImplementedYet}
-                            />
-                            <Route
-                                path="/branchs"
-                                component={NotImplementedYet}
-                            />
-                            <Route
-                                path="/teachers"
-                                component={NotImplementedYet}
-                            />
+                            <Route exact path="/" component={Dashboard} />
+                            <Route path="/agenda" component={Agenda} />
+                            <Route path="/branchs" component={Branchs} />
+                            <Route path="/teachers" component={Teachers} />
                             <Route
                                 path="/assessment-variables"
-                                component={NotImplementedYet}
+                                component={Variables}
                             />
-                            <Route
-                                path="/subjects"
-                                component={NotImplementedYet}
-                            />
-                            <Route
-                                path="/segments"
-                                component={NotImplementedYet}
-                            />
-                            <Route path="/help" component={NotImplementedYet} />
+                            <Route path="/subjects" component={Subjects} />
+                            <Route path="/segments" component={Segments} />
+                            <Route path="/help" component={Help} />
                             <Route component={NotFound} />
                         </Switch>
                     </MainLayout>

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResultItem renders correctly 1`] = `
+<WithStyles(Paper)
+  square={true}
+>
+  <WithStyles(ListItem)
+    button={true}
+    className="result-item"
+    id="list-item"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <img
+        alt="Unknown"
+        className="result-icon"
+        src="https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765"
+      />
+    </WithStyles(ListItemIcon)>
+    <div>
+      <p
+        className="result-name"
+      >
+        Unknown
+      </p>
+      <p
+        className="result-description"
+      >
+        Description
+      </p>
+    </div>
+  </WithStyles(ListItem)>
+</WithStyles(Paper)>
+`;
