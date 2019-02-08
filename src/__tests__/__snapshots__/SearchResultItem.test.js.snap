@@ -10,7 +10,9 @@ exports[`SearchResultItem renders correctly 1`] = `
     id="list-item"
     onClick={[Function]}
   >
-    <WithStyles(ListItemIcon)>
+    <WithStyles(ListItemIcon)
+      className="result-icon-mask"
+    >
       <img
         alt="Unknown"
         className="result-icon"

@@ -24,7 +24,7 @@ export const SearchResultItem = ({
             button
             onClick={action}
         >
-            <ListItemIcon>
+            <ListItemIcon className="result-icon-mask">
                 <img className="result-icon" src={photoUrl} alt={name} />
             </ListItemIcon>
             <div>

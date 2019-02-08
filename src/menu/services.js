@@ -2,6 +2,7 @@ export const getSchoolnetInfo = () =>
     new Promise(resolve => {
         resolve({
             name: 'Escola Elite',
+            description: 'Curso/Escola Elite',
             photo:
                 'https://static.wirtualnemedia.pl/media/top/SzkoladlaElity-655.jpg'
         })

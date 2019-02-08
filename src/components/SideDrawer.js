@@ -32,6 +32,7 @@ export const SideDrawer = ({
     menuItems = [],
     schoolnetInfo = {
         name: 'Anonymous',
+        description: 'Descrição da escola',
         photo:
             'https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765'
     }
@@ -41,13 +42,16 @@ export const SideDrawer = ({
     }
 
     const AvatarImage = ({ url, alt = '' }) => (
-        <img src={url} className="avatar" alt={alt} />
+        <div className="avatar-mask">
+            <img src={url} className="avatar" alt={alt} />
+        </div>
     )
 
     return (
         <div className="drawer">
             <AvatarImage url={schoolnetInfo.photo} alt={schoolnetInfo.name} />
             <span className="title">{schoolnetInfo.name}</span>
+            <span className="sub-title">{schoolnetInfo.description}</span>
             <div className="list">
                 {menuItems.map(item => (
                     <DrawerItem

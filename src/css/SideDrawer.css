@@ -19,17 +19,30 @@
     }
 }
 
-.avatar {
-    border-radius: 50%;
+.avatar-mask {
+    margin: 2em 0 1em 0;
+    display: inline-block;
     width: 8em;
     height: 8em;
-    margin: 1.5em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar {
+    width: 100%;
 }
 
 .title {
     color: white;
     font-size: 1.2em;
     font-weight: 600;
+}
+
+.sub-title {
+    color: white;
+    font-size: 1em;
+    margin-top: .5em;
+    font-weight: 400;
     margin-bottom: 1em;
 }
 
