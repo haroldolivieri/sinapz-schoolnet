@@ -8,7 +8,7 @@ export const fetchSearch = input =>
 // method to mimic search made on backend
 function filterIt(arr, searchKey) {
 
-    if (searchKey.length == 0) {
+    if (searchKey.length === 0) {
         return []
     }
 
