@@ -13,6 +13,11 @@ exports[`Side Drawer renders correctly 1`] = `
   >
     Anonymous
   </span>
+  <span
+    className="sub-title"
+  >
+    Descrição da escola
+  </span>
   <div
     className="list"
   >

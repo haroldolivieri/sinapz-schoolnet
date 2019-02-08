@@ -19,9 +19,16 @@
     height: 4em;
 }
 
-.result-icon {
+.result-icon-mask {
+    display: inline-block;
     width: 2em;
     height: 2em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.result-icon {
+    width: 100%;
 }
 
 .result-name {

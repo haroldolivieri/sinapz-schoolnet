@@ -14,7 +14,7 @@
     align-items: center;
     right: 0;
     left: 0;
-    padding: 1em;
+    padding: 2em;
 }
 @media only screen and (min-width: 900px) {
     .toolbar {
@@ -29,7 +29,17 @@
 }
 
 .logo {
-    width: 10em;
+    width: 15em;
+    left: -1em;
+    position: relative;
+    margin: 0 auto;
+    align-self: center;
+}
+@media only screen and (min-width: 900px) {
+    .logo {
+        left: 0;
+        margin: 0;
+    }
 }
 
 .search {
@@ -45,7 +55,7 @@
 
 .children-content {
     width: 100vw;
-    padding: 1em;
+    padding: 2em;
     background-color: '#FAF8F8';
     margin-top: 10em;
 }
