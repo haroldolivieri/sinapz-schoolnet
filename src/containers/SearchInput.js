@@ -4,7 +4,7 @@ import SearchRounded from '@material-ui/icons/SearchRounded'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import { debounce } from 'throttle-debounce'
-import { searchInputChanged } from '../searchbar/actions'
+import { fetchSearchResults } from '../searchbar/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -22,7 +22,6 @@ export const SearchResultItem = ({
             className="result-item"
             id="list-item"
             button
-            key={name}
             onClick={action}
         >
             <ListItemIcon>
@@ -60,7 +59,11 @@ export class SearchInput extends Component {
     }
 
     onResultClicked = (type, id) => {
+        this.clearInput()
         //navigate to right page
+    }
+
+    clearInput = () => {
         this.setState({ searchInput: '' }, () => {
             this.autocompleteSearch(this.state.searchInput)
         })
@@ -73,7 +76,7 @@ export class SearchInput extends Component {
     }
 
     autocompleteSearch = input => {
-        this.props.searchInputChanged(input)
+        this.props.fetchSearchResults(input)
     }
 
     render() {
@@ -84,15 +87,18 @@ export class SearchInput extends Component {
                     fullWidth={true}
                     value={this.state.searchInput}
                     onChange={this.onInputChanged}
+                    onBlur={this.clearInput}
                     label="Busque por alunos, professores e filiais"
                     InputProps={{
                         endAdornment: <SearchRounded />
                     }}
                 />
-                <div className="searchbar">
+
+                {this.props.results.length > 0 && (
                     <div className="results">
                         {this.props.results.map(item => (
                             <SearchResultItem
+                                key={item.name}
                                 name={item.name}
                                 description={item.description}
                                 action={this.onResultClicked.bind(
@@ -103,7 +109,7 @@ export class SearchInput extends Component {
                             />
                         ))}
                     </div>
-                </div>
+                )}
             </div>
         )
     }
@@ -114,9 +120,14 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ searchInputChanged }, dispatch)
+    bindActionCreators({ fetchSearchResults }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SearchInput)
+
+SearchInput.propTypes = {
+    results: PropTypes.array.isRequired,
+    fetchSearchResults: PropTypes.func.isRequired
+}

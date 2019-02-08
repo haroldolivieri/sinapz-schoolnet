@@ -1,6 +1,6 @@
 import * as types from './types'
 
-export const searchInputChanged = searchQuery => ({
-    type: types.SEARCH_INPUT_CHANGED,
+export const fetchSearchResults = searchQuery => ({
+    type: types.FETCH_SEARCH_RESULTS,
     searchQuery
 })

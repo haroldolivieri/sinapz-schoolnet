@@ -1,7 +1,3 @@
-.searchbar {
-    width: 100%;
-}
-
 .results {
     z-index: 9999;
     position: fixed;

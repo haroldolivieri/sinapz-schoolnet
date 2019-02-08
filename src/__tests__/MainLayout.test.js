@@ -17,7 +17,7 @@ describe('MainLayout', () => {
 
         it('starts closed', () => {
             responsiveDrawer = wrapper.find(ResponsiveDrawer)
-            expect(responsiveDrawer.props().opened).toBe(false)
+            expect(responsiveDrawer.props().opened).toBeFalsy()
         })
     })
 

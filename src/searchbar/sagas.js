@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { fetchSearch } from './services'
 
-import { SEARCH_INPUT_CHANGED, SEARCH_RESULTS } from './types'
+import { FETCH_SEARCH_RESULTS, SEARCH_RESULTS } from './types'
 
 function* fetchSearchSaga(action) {
     const response = yield call(fetchSearch, action.searchQuery)
@@ -9,5 +9,5 @@ function* fetchSearchSaga(action) {
 }
 
 export default function* searchBarSaga() {
-    yield takeLatest(SEARCH_INPUT_CHANGED, fetchSearchSaga)
+    yield takeLatest(FETCH_SEARCH_RESULTS, fetchSearchSaga)
 }

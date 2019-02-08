@@ -12,6 +12,6 @@ describe('App', () => {
     const wrapper = shallow(<App />)
     const mainLayoutWrapper = wrapper.find('Connect(MainLayout)')
 
-    expect(mainLayoutWrapper.exists()).toBe(true)
+    expect(mainLayoutWrapper.exists()).toBeTruthy()
   });
 });
