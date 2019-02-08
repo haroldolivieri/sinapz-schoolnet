@@ -7,6 +7,11 @@ export const fetchSearch = input =>
 
 // method to mimic search made on backend
 function filterIt(arr, searchKey) {
+
+    if (searchKey.length == 0) {
+        return []
+    }
+
     return arr.filter(function(obj) {
         return Object.keys(obj).some(function(key) {
             return obj[key].toLowerCase().includes(searchKey.toLowerCase())

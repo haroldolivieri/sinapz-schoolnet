@@ -1,0 +1,33 @@
+.searchbar {
+    display: flex;
+    width: 100%;
+}
+
+.results {
+    z-index: 9999;
+    position: fixed;
+}
+
+.paper {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+
+.result-item {
+    height: 4em;
+}
+
+.result-icon {
+    width: 2em;
+    height: 2em;
+}
+
+.result-name {
+    font-size: 0.8em;
+}
+
+.result-description {
+    font-size: 0.5em;
+}
