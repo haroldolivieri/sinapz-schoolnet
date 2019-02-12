@@ -1,0 +1,27 @@
+.card{
+    /* Card Background */
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgb(0, 0, 255));
+    }
+
+.square {  
+    /* Square */    
+    padding-bottom: 100%;
+    position: relative;
+    }
+
+.square_content {
+    /* Flexbox  */
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content: center;
+    
+    /* Square */
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    }
+
+.card b{
+    /* Card text color */
+    color: rgb(255, 255, 255) !important;
+}
