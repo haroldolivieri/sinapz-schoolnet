@@ -4,7 +4,7 @@ import SideDrawer from './SideDrawer'
 import PropTypes from 'prop-types'
 
 const ResponsiveDrawer = ({ opened = false, onClose = function() {} }) => (
-    <Drawer id="drawer" open={opened} onClose={onClose(false)}>
+    <Drawer id="drawer" open={opened} onClose={onClose}>
         <div className="only-mobyle">
             <SideDrawer />
         </div>

@@ -57,6 +57,7 @@
     width: 100vw;
     padding: 2em;
     background-color: '#FAF8F8';
+    min-height: 80vh;
     margin-top: 10em;
 }
 @media only screen and (min-width: 900px) {

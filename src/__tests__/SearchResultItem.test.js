@@ -1,7 +1,7 @@
 import React from 'react'
 import { SearchResultItem } from '../containers/SearchInput'
 import { shallow } from 'enzyme'
-import { ListItem } from '@material-ui/core';
+import { ListItem } from '@material-ui/core'
 
 describe('SearchResultItem', () => {
     it('renders correctly', () => {
@@ -30,10 +30,19 @@ describe('SearchResultItem', () => {
 
     it('call action on click', () => {
         const mockAction = jest.fn()
-        const wrapper = shallow(<SearchResultItem action={mockAction}/>)
+        const wrapper = shallow(<SearchResultItem onClick={mockAction} />)
 
         wrapper.find(ListItem).simulate('click')
 
         expect(mockAction.mock.calls.length).toBe(1)
+    })
+
+    it('call close action on click', () => {
+        const mockClose = jest.fn()
+        const wrapper = shallow(<SearchResultItem onClose={mockClose} />)
+
+        wrapper.find(ListItem).simulate('click')
+
+        expect(mockClose.mock.calls.length).toBe(1)
     })
 })
