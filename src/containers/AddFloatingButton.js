@@ -54,7 +54,7 @@ export class AddFloatingButton extends Component {
                         this.anchorEl = node
                     }}
                     onClick={
-                        items.length == 1
+                        items.length === 1
                             ? items[0].action
                             : this.toogleFabPopup
                     }
