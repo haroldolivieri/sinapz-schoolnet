@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BranchList with branch list should match with snapshot 1`] = `
+Array [
+  <WithStyles(SinapzCard)
+    branch={
+      Object {
+        "id": 1,
+        "inCharge": "Hadoldo",
+        "name": "madureira",
+      }
+    }
+    key="1"
+  />,
+  <WithStyles(SinapzCard)
+    branch={
+      Object {
+        "id": 2,
+        "inCharge": "Paula",
+        "name": "Meier",
+      }
+    }
+    key="2"
+  />,
+]
+`;
+
+exports[`BranchList with empty branch list should match with snapshot 1`] = `
+<div>
+  Essa rede não tem filiais
+</div>
+`;

@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from './store'
 import MainLayout from './containers/MainLayout'
+import Branches from './containers/Branches'
 import {
     NotFound,
     Dashboard,
     Agenda,
-    Branchs,
     Teachers,
     Variables,
     Subjects,
@@ -36,7 +36,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
                             <Route path="/agenda" component={Agenda} />
-                            <Route path="/branchs" component={Branchs} />
+                            <Route path="/branchs" component={Branches} />
                             <Route path="/teachers" component={Teachers} />
                             <Route
                                 path="/assessment-variables"
