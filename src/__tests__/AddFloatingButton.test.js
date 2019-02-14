@@ -35,11 +35,11 @@ describe('AddFloatingButton', () => {
             () => (wrapper = shallow(<AddFloatingButton popupItems={items} />))
         )
 
-        it('renders correctly no items', () => {
+        it('renders correctly', () => {
             expect(wrapper).toMatchSnapshot()
         })
 
-        it('renders correctly many items', () => {
+        it('renders correctly after click', () => {
             wrapper.find(Fab).simulate('click')
             expect(wrapper).toMatchSnapshot()
         })
