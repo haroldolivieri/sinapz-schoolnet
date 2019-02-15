@@ -15,14 +15,18 @@ export const SearchResultItem = ({
     name = 'Unknown',
     description = 'Description',
     photoUrl = 'https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765',
-    action = function() {}
+    onClick = function() {},
+    onClose = function() {}
 }) => (
     <Paper square>
         <ListItem
             className="result-item"
             id="list-item"
             button
-            onClick={action}
+            onClick={() => {
+                onClick()
+                onClose()
+            }}
         >
             <ListItemIcon className="result-icon-mask">
                 <img className="result-icon" src={photoUrl} alt={name} />
@@ -51,7 +55,8 @@ export class SearchInput extends Component {
     }
 
     state = {
-        searchInput: ''
+        searchInput: '',
+        searchResultsOpened: false
     }
 
     onInputChanged = event => {
@@ -60,7 +65,6 @@ export class SearchInput extends Component {
 
     onResultClicked = (type, id) => {
         this.clearInput()
-        //navigate to right page
     }
 
     clearInput = () => {
@@ -79,6 +83,12 @@ export class SearchInput extends Component {
         this.props.fetchSearchResults(input)
     }
 
+    toggleResultsOpened = () => {
+        this.setState(state => ({
+            searchResultsOpened: !state.searchResultsOpened
+        }))
+    }
+
     render() {
         return (
             <div>
@@ -87,29 +97,32 @@ export class SearchInput extends Component {
                     fullWidth={true}
                     value={this.state.searchInput}
                     onChange={this.onInputChanged}
-                    onBlur={this.clearInput}
+                    onFocus={this.toggleResultsOpened}
+                    onBlur={this.toggleResultsOpened}
                     label="Busque por alunos, professores e filiais"
                     InputProps={{
                         endAdornment: <SearchRounded />
                     }}
                 />
 
-                {this.props.results.length > 0 && (
-                    <div className="results">
-                        {this.props.results.map(item => (
-                            <SearchResultItem
-                                key={item.name}
-                                name={item.name}
-                                description={item.description}
-                                action={this.onResultClicked.bind(
-                                    this,
-                                    item.type,
-                                    item.id
-                                )}
-                            />
-                        ))}
-                    </div>
-                )}
+                {this.state.searchResultsOpened &&
+                    this.props.results.length > 0 && (
+                        <div className="results">
+                            {this.props.results.map(item => (
+                                <SearchResultItem
+                                    key={item.name}
+                                    name={item.name}
+                                    description={item.description}
+                                    onClose={this.toggleResultsOpened}
+                                    onClick={this.onResultClicked.bind(
+                                        this,
+                                        item.type,
+                                        item.id
+                                    )}
+                                />
+                            ))}
+                        </div>
+                    )}
             </div>
         )
     }

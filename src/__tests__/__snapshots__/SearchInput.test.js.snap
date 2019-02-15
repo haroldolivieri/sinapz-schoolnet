@@ -13,6 +13,7 @@ exports[`SearchInput renders correctly for empty results 1`] = `
     label="Busque por alunos, professores e filiais"
     onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     required={false}
     select={false}
     value=""
@@ -34,26 +35,11 @@ exports[`SearchInput renders correctly for existing results 1`] = `
     label="Busque por alunos, professores e filiais"
     onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     required={false}
     select={false}
     value=""
     variant="standard"
   />
-  <div
-    className="results"
-  >
-    <SearchResultItem
-      action={[Function]}
-      description="Professor de Geografia"
-      key="Osnir"
-      name="Osnir"
-    />
-    <SearchResultItem
-      action={[Function]}
-      description="Filial da Tijuca"
-      key="Tijuca"
-      name="Tijuca"
-    />
-  </div>
 </div>
 `;
