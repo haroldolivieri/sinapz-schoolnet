@@ -16,37 +16,25 @@ export const dashboardAvaliacoes = [
     {
         tipo: "Prova",
         disciplina: "Geografia",
-        turma: "1201",
-        tempoParaAvaliacao: "1"
+        grupo: "Ensino Medio",
+        tempoParaAvaliacao: "15m"
     },
     {
         tipo: "Teste",
         disciplina: "Geografia",
-        turma: "601",
-        tempoParaAvaliacao: "1"
+        grupo: "Ensino Fundamental",
+        tempoParaAvaliacao: "1h"
     },
     {
         tipo: "Prova",
         disciplina: "Historia",
-        turma: "1201",
-        tempoParaAvaliacao: "3"
+        grupo: "Ensino Medio",
+        tempoParaAvaliacao: "2h15m"
     },
     {
         tipo: "Prova",
         disciplina: "Matematica",
-        turma: "801",
-        tempoParaAvaliacao: "3"
-    },
-    {
-        tipo: "Teste",
-        disciplina: "Portugues",
-        turma: "901",
-        tempoParaAvaliacao: "1"
-    },
-    {
-        tipo: "Prova",
-        disciplina: "Fisica",
-        turma: "1301",
-        tempoParaAvaliacao: "1"
+        grupo: "Ensino Fundamental",
+        tempoParaAvaliacao: "3h"
     }]
 

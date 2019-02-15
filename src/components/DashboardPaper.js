@@ -16,7 +16,7 @@ const styles = theme => ({
 
 
 function PaperSheet(props) {
-    const { classes, tipo, disciplina, grupo, tempoRestante } = props;
+    const { classes, tipo, disciplina, grupo, tempoParaAvaliacao } = props;
 
     return (
         <div class="paper">
@@ -26,15 +26,16 @@ function PaperSheet(props) {
                 >
                 <div class="left">
                     <Typography variant="h5" component="h3">
-                        <b>{ tipo }</b> de <b>{ disciplina }</b> do <b>{ grupo }</b>
+                        <b>{ tipo }</b> de <b>{ disciplina }</b> da <b>{ grupo }</b>
                     </Typography>
                 </div>
                 <div class="right">
                     <Typography component="h4">
-                        Começa em <b>{ tempoRestante} </b>
+                        Começa em <b>{ tempoParaAvaliacao} </b>
                     </Typography>
                 </div>
             </Paper>
+            <br/>
         </div>
     );
 }

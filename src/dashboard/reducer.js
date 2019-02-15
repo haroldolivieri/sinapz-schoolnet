@@ -8,10 +8,11 @@ const defaultState = Map({
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case types.SET_DASHBOARD_ITEMS:
-            console.log('reducer')
+        case types.SET_DASHBOARD_INDICES:
+            console.log('Reducer: SET_DASHBOARD_INDICES')
             return state.set('dashboardIndices', action.dashboardIndices)
-        case types.SET_AVALIACOES_ITEMS:
+        case types.SET_DASHBOARD_AVALIACOES:
+            console.log('Reducer: SET_DASHBOARD_AVALIACOES')
             return state.set('dashboardAvaliacoes', action.dashboardAvaliacoes)
         default:
             return state
