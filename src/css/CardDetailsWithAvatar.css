@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .card-container {
   display: flex;
   flex: 1;
