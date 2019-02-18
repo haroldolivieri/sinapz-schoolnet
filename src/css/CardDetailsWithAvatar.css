@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+.card-container {
+  display: flex;
+  flex: 1;
+  margin-top: 2vh;
+  padding: 0.5%;
+}
+
+.avatar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 5%;
+  padding: 1%;
+}
+
+.content-item {
+  padding: 1%;
+}
+
+.item-card-text-name {
+  display: block;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 90vw;
+}
+
+.item-card-text-sub {
+  display: block;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  font-weight: 200;
+  width: 90vw;
+}

@@ -1,26 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Branches with branch list renders correctlyt 1`] = `
+exports[`Branches with branch list renders correctly 1`] = `
 <div>
   <h1>
     Filiais
   </h1>
-  <BranchList
-    branches={
-      Array [
-        Object {
-          "id": 1,
-          "inCharge": "Hadoldo",
-          "name": "madureira",
-        },
-        Object {
-          "id": 2,
-          "inCharge": "Paula",
-          "name": "Meier",
-        },
-      ]
-    }
-  />
+  <div
+    className=".branch-list-container"
+  >
+    <BranchList
+      branches={
+        Array [
+          Object {
+            "id": 1,
+            "inCharge": "Hadoldo",
+            "name": "madureira",
+          },
+          Object {
+            "id": 2,
+            "inCharge": "Paula",
+            "name": "Meier",
+          },
+        ]
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -29,8 +33,12 @@ exports[`Branches with empty branch list should match with snapshot 1`] = `
   <h1>
     Filiais
   </h1>
-  <BranchList
-    branches={Array []}
-  />
+  <div
+    className=".branch-list-container"
+  >
+    <BranchList
+      branches={Array []}
+    />
+  </div>
 </div>
 `;

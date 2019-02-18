@@ -1,5 +1,5 @@
 import React from 'react'
-import { BranchList, SinapzCard } from '../components'
+import { BranchList, CardDetailsWithAvatar } from '../components'
 import { shallow } from 'enzyme'
 
 describe(BranchList, () => {
@@ -8,8 +8,8 @@ describe(BranchList, () => {
     const wrapper = shallow(<BranchList branches={[]} />)
     
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })
-    it('should has two SinapzCard', () => { expect(wrapper.find(SinapzCard)).toHaveLength(0) })
-    it('should has warnning text', () => { expect(wrapper.find('div').text()).toEqual('Essa rede não tem filiais') })
+    it('should has none CardDetails', () => { expect(wrapper.find(CardDetailsWithAvatar)).toHaveLength(0) })
+    it('should has warnning text', () => { expect(wrapper.children().text()).toEqual('Essa rede não tem filiais') })
   })
 
   context('with branch list', () => {
@@ -17,6 +17,6 @@ describe(BranchList, () => {
     const wrapper = shallow(<BranchList branches={branches} />)
 
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })
-    it('should has two SinapzCard', () => { expect(wrapper.find(SinapzCard)).toHaveLength(2) })
+    it('should has two CardDetails', () => { expect(wrapper.find(CardDetailsWithAvatar)).toHaveLength(2) })
   })
 })

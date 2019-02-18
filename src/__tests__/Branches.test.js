@@ -8,7 +8,7 @@ describe(Branches, () => {
     let branches = [{ id: 1, name: 'madureira', inCharge: 'Hadoldo' }, { id: 2, name: 'Meier', inCharge: 'Paula' }]
     const wrapper = shallow(<Branches branches={branches} />)
 
-    it('renders correctlyt', () => { expect(wrapper).toMatchSnapshot() })
+    it('renders correctly', () => { expect(wrapper).toMatchSnapshot() })
   })
 
   context('with empty branch list', () => {
