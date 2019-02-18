@@ -1,7 +1,8 @@
 import React from 'react'
 import CardDetailsWithAvatar from './CardDetailsWithAvatar'
+import PropTypes from 'prop-types'
 
-const BranchList = ({ branches }) => {
+const BranchList = ({ branches = [] }) => {
   if(!branches || !branches.length){
     return <p>Essa rede não tem filiais</p>
   }
@@ -10,6 +11,10 @@ const BranchList = ({ branches }) => {
       <CardDetailsWithAvatar branch={branch} key={branch.id} />
     )
   })
+}
+
+BranchList.propTypes = {
+  branches: PropTypes.array
 }
 
 export default BranchList

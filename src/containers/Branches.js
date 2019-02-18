@@ -1,6 +1,7 @@
 import React from 'react'
 import { BranchList } from '../components'
 import '../css/Branches.css'
+import PropTypes from 'prop-types'
 
 class Branches extends React.Component {
   render() {
@@ -13,6 +14,10 @@ class Branches extends React.Component {
       </div>
     )
   }
+}
+
+Branches.propTypes = {
+  branches: PropTypes.array
 }
 
 export default Branches
