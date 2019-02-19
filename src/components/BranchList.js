@@ -3,7 +3,7 @@ import CardDetailsWithAvatar from './CardDetailsWithAvatar'
 import PropTypes from 'prop-types'
 
 const BranchList = ({ branches = [] }) => {
-  if(!branches || !branches.length){
+  if(!branches.length){
     return <p>Essa rede não tem filiais</p>
   }
   return branches.map(branch => {

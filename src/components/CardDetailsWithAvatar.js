@@ -22,8 +22,20 @@ export const CardDetailsWithAvatar = ({branch}) => {
   )
 }
 
-CardDetailsWithAvatar.propTypes = {
-  branch: PropTypes.object.isRequired
+CardDetailsWithAvatar.PropTypes = {
+  branch: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    inCharge: PropTypes.string
+  })
+}
+
+CardDetailsWithAvatar.defaultProps = {
+  branch: {
+    id: "Unknown",
+    name: "Unknown",
+    inCharge: "Unknown"
+  }
 }
 
 export default CardDetailsWithAvatar
