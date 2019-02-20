@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import '../css/CardDetailsWithAvatar.css'
 import PropTypes from 'prop-types'
