@@ -4,13 +4,14 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import '../css/CardDetailsWithAvatar.css'
 import PropTypes from 'prop-types'
+import { extractInitials } from '../util/handlerWithNames'
 
 export const CardDetailsWithAvatar = ({branch}) => {
   return (
     <Card key={branch.id} className="card-container">
       <div className="avatar-item">
         <CardHeader avatar={
-          <Avatar>R</Avatar>
+          <Avatar>{ extractInitials(branch.name) }</Avatar>
         }
         />
       </div>
@@ -22,7 +23,7 @@ export const CardDetailsWithAvatar = ({branch}) => {
   )
 }
 
-CardDetailsWithAvatar.PropTypes = {
+CardDetailsWithAvatar.propTypes = {
   branch: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
