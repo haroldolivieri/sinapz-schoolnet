@@ -10,10 +10,7 @@ export const CardDetailsWithAvatar = ({branch}) => {
   return (
     <Card key={branch.id} className="card-container">
       <div className="avatar-item">
-        <CardHeader avatar={
-          <Avatar>{ extractInitials(branch.name) }</Avatar>
-        }
-        />
+        <Avatar>{ extractInitials(branch.name) }</Avatar>
       </div>
       <div className="content-item">
         <span className="item-card-text-name">{branch.name}</span>

@@ -13,13 +13,9 @@ exports[`CardDetailsWithAvatar with branch Meier should match with snapshot 1`] 
   <div
     className="avatar-item"
   >
-    <WithStyles(CardHeader)
-      avatar={
-        <WithStyles(Avatar)>
-          M
-        </WithStyles(Avatar)>
-      }
-    />
+    <WithStyles(Avatar)>
+      M
+    </WithStyles(Avatar)>
   </div>
   <div
     className="content-item"

@@ -1,7 +1,6 @@
 import React from 'react'
 import { CardDetailsWithAvatar } from '../components'
 import { createShallow } from '@material-ui/core/test-utils'
-import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 
 describe(CardDetailsWithAvatar, () => {
@@ -12,7 +11,6 @@ describe(CardDetailsWithAvatar, () => {
     const wrapper = shallow(<CardDetailsWithAvatar branch={branch} />)
     
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })
-    it('should has CardHeader', () => { expect(wrapper.find(CardHeader)).toHaveLength(1) })
     it('should has branch name Meier', () => {
       expect(wrapper.find('.content-item').find('.item-card-text-name').text()).toEqual('Meier') 
     })
