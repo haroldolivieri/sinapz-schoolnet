@@ -13,7 +13,7 @@ describe(BranchList, () => {
   })
 
   context('with branch list', () => {
-    let branches = [{ id: 1, name: 'madureira', inCharge: 'Hadoldo' }, { id: 2, name: 'Meier', inCharge: 'Paula' }]
+    let branches = [{ id: '1', name: 'madureira', inCharge: 'Hadoldo' }, { id: '2', name: 'Meier', inCharge: 'Paula' }]
     const wrapper = shallow(<BranchList branches={branches} />)
 
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })

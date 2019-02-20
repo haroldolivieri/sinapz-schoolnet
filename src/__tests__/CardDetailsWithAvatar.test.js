@@ -8,7 +8,7 @@ describe(CardDetailsWithAvatar, () => {
 
   context('with branch Meier', () => {
     let shallow = createShallow({ dive: true })
-    let branch = { id: 2, name: 'Meier', inCharge: 'Paula' }
+    let branch = { id: '2', name: 'Meier', inCharge: 'Paula' }
     const wrapper = shallow(<CardDetailsWithAvatar branch={branch} />)
     
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })

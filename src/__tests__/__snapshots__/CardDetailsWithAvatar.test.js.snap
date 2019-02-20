@@ -16,7 +16,7 @@ exports[`CardDetailsWithAvatar with branch Meier should match with snapshot 1`] 
     <WithStyles(CardHeader)
       avatar={
         <WithStyles(Avatar)>
-          R
+          M
         </WithStyles(Avatar)>
       }
     />

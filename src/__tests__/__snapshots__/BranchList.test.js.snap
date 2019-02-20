@@ -5,7 +5,7 @@ Array [
   <CardDetailsWithAvatar
     branch={
       Object {
-        "id": 1,
+        "id": "1",
         "inCharge": "Hadoldo",
         "name": "madureira",
       }
@@ -15,7 +15,7 @@ Array [
   <CardDetailsWithAvatar
     branch={
       Object {
-        "id": 2,
+        "id": "2",
         "inCharge": "Paula",
         "name": "Meier",
       }
