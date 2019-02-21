@@ -66,13 +66,6 @@ export const Agenda = () => (
     </div>
 )
 
-export const Branchs = () => (
-    <div>
-        <h1>Filiais</h1>
-        <p>Not implemented yet</p>
-    </div>
-)
-
 export const Teachers = () => (
     <div>
         <h1>Professores</h1>

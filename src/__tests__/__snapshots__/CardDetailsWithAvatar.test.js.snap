@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardDetailsWithAvatar with branch Meier should match with snapshot 1`] = `
+<Card
+  className="card-container"
+  classes={
+    Object {
+      "root": "MuiCard-root-1",
+    }
+  }
+  raised={false}
+>
+  <div
+    className="avatar-item"
+  >
+    <WithStyles(Avatar)>
+      M
+    </WithStyles(Avatar)>
+  </div>
+  <div
+    className="content-item"
+  >
+    <span
+      className="item-card-text-name"
+    >
+      Meier
+    </span>
+    <span
+      className="item-card-text-sub"
+    >
+      Responsável: Paula
+    </span>
+  </div>
+</Card>
+`;
