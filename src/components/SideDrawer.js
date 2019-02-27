@@ -71,11 +71,6 @@ const mapStateToProps = state => ({
     schoolnetInfo: state.menu.get('schoolnetInfo'),
     menuItems: state.menu.get('menuItems')
 })
-// function mapStateToProps(state) {
-//     schoolnetInfo: state.menu.get('schoolnetInfo')
-//     menuItems: state.menu.get('menuItems')
-//     console.log(state)
-//   }
 
 export default compose(
     withRouter,

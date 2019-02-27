@@ -1,16 +1,13 @@
-import { dashboardIndices, dashboardAvaliacoes } from './mock'
+import { dashboardIndexes, dashboardAssesments } from './mock'
 
-
-export const getDashboardIndices = async () => {
+export const getDashboardIndexes = async () => {
     return new Promise(resolve => setTimeout(() => {
-        console.log('Services: getDashboardIndices')
-        resolve(dashboardIndices)
+        resolve(dashboardIndexes)
     }, 2000))
 }
 
-export const getDashboardAvaliacoes = async () => {
+export const getDashboardAssesments = async () => {
     return new Promise(resolve => setTimeout(() => {
-        console.log('Services: getDashboardAvaliacoes')
-        resolve(dashboardAvaliacoes)
+        resolve(dashboardAssesments)
     }, 2000))
 }

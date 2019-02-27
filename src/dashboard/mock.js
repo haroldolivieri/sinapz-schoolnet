@@ -1,40 +1,39 @@
-export const dashboardIndices = [
+export const dashboardIndexes = [
     {
-        quantidade: "5",
-        tipo: "Filiais"
+        quantity: "5",
+        type: "Filiais"
     },
     {
-        quantidade: "40",
-        tipo: "Professores"
+        quantity: "40",
+        type: "Professores"
     },
     {
-        quantidade: "200",
-        tipo: "Alunos"
+        quantity: "200",
+        type: "Alunos"
     }]
 
-export const dashboardAvaliacoes = [
+export const dashboardAssesments = [
     {
-        tipo: "Prova",
-        disciplina: "Geografia",
-        grupo: "Ensino Medio",
-        tempoParaAvaliacao: "15m"
+        type: "Prova",
+        discipline: "Geografia",
+        group: "Ensino Medio",
+        timeToAssesment: "2019-02-27T12:00:00-03:00"
     },
     {
-        tipo: "Teste",
-        disciplina: "Geografia",
-        grupo: "Ensino Fundamental",
-        tempoParaAvaliacao: "1h"
+        type: "Teste",
+        discipline: "Geografia",
+        group: "Ensino Fundamental",
+        timeToAssesment: "2019-02-27T15:30:00-03:00"
     },
     {
-        tipo: "Prova",
-        disciplina: "Historia",
-        grupo: "Ensino Medio",
-        tempoParaAvaliacao: "2h15m"
+        type: "Prova",
+        discipline: "Historia",
+        group: "Ensino Medio",
+        timeToAssesment: "2019-02-28T15:30:00-03:00"
     },
     {
-        tipo: "Prova",
-        disciplina: "Matematica",
-        grupo: "Ensino Fundamental",
-        tempoParaAvaliacao: "3h"
+        type: "Prova",
+        discipline: "Matematica",
+        group: "Ensino Fundamental",
+        timeToAssesment: "2019-02-29T15:30:00-03:00"
     }]
-

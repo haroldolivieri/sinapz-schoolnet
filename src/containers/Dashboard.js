@@ -1,89 +1,79 @@
 import React from 'react';
-import Grid from "@material-ui/core/Grid";
 import { DashboardCard, DashboardPaper } from '../components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import '../css/Dashboard.css'
 
-
-export const DashboardIndice = ({
-    quantidade = 0,
-    tipo = 'Unknown',
+export const DashboardIndex = ({
+    quantity = 0,
+    type = 'Unknown',
 }) => (
         <DashboardCard
-            quantidade = { quantidade }
-            tipo = { tipo }
+            quantity = { quantity }
+            type = { type }
         />
-)
-DashboardIndice.propTypes = {
-    quantidade: PropTypes.number,
-    tipo: PropTypes.string,
-}
+);
+DashboardIndex.propTypes = {
+    quantity: PropTypes.number,
+    type: PropTypes.string,
+};
 
-export const DashboardAvaliacao = ({
-    tipo = 'Unknown',
-    disciplina = 'Unknown',
-    grupo = 'Unknown',
-    tempoParaAvaliacao = 'Unknown'
+export const DashboardAssesment = ({
+    type = 'Unknown',
+    discipline = 'Unknown',
+    group = 'Unknown',
+    timeToAssesment = 'Unknown'
 }) => (
     <DashboardPaper
-        tipo = { tipo }
-        disciplina = { disciplina }
-        grupo = { grupo }
-        tempoParaAvaliacao = { tempoParaAvaliacao }
+        type = { type }
+        discipline = { discipline }
+        group = { group }
+        timeToAssesment = { timeToAssesment }
     />
-)
-DashboardAvaliacao.propTypes = {
-    tipo: PropTypes.string,
-    disciplina: PropTypes.string,
-    grupo: PropTypes.string,
-    tempoParaAvaliacao: PropTypes.string,
-}
+);
+DashboardAssesment.propTypes = {
+    type: PropTypes.string,
+    discipline: PropTypes.string,
+    group: PropTypes.string,
+    timeToAssesment: PropTypes.string,
+};
 
 const Dashboard = ({
-    dashboardIndices = [],
-    dashboardAvaliacoes = []
+    dashboardIndexes = [],
+    dashboardAssesments = []
 }) => (
     <div>
-        <div>
-            <Grid container spacing={24}>
-            {dashboardIndices.map(item => (
-                <Grid item md={4}>
+        <div className="cards">
+            {dashboardIndexes.map(item => (
                     <DashboardCard
-                        quantidade={item.quantidade}
-                        tipo={item.tipo}
+                        quantity={ item.quantity }
+                        type={ item.type }
                     />
-                </Grid>
                 ))}
-            </Grid>
+
         </div>
         <div>
             <h1>Próximas Avaliações em 24h </h1>
-            {dashboardAvaliacoes.map(item => (
+            {dashboardAssesments.map(item => (
                     <DashboardPaper
-                        tipo={item.tipo}
-                        disciplina={item.disciplina}
-                        grupo={item.grupo}
-                        tempoParaAvaliacao={item.tempoParaAvaliacao}
+                        type={item.type}
+                        discipline={item.discipline}
+                        group={item.group}
+                        timeToAssesment={item.timeToAssesment}
                     />
                 ))}
         </div>
     </div>
-)
+);
 
 const mapStateToProps = state => ({
-    dashboardIndices: state.dashboard.get('dashboardIndices'),
-    dashboardAvaliacoes: state.dashboard.get('dashboardAvaliacoes')
-})
-
-// function mapStateToProps(state) {
-//     dashboardIndices: state.dashboard.get('dashboardIndices')
-//     dashboardAvaliacoes: state.dashboard.get('dashboardAvaliacoes')
-//     console.log(state)
-//   }
+    dashboardIndexes: state.dashboard.get('dashboardIndexes'),
+    dashboardAssesments: state.dashboard.get('dashboardAssesments')
+});
 
 export default connect(mapStateToProps)(Dashboard)
 
 Dashboard.propTypes = {
-    dashboardIndices: PropTypes.array,
-    dashboardAvaliacoes: PropTypes.array
-}
+    dashboardIndexes: PropTypes.array,
+    dashboardAssesments: PropTypes.array
+};

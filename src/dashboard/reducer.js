@@ -2,18 +2,16 @@ import { Map } from 'immutable'
 import * as types from './types'
 
 const defaultState = Map({
-    dashboardIndices: [],
-    dashboardAvaliacoes: []
+    dashboardIndexes: [],
+    dashboardAssesments: []
 })
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case types.SET_DASHBOARD_INDICES:
-            console.log('Reducer: SET_DASHBOARD_INDICES')
-            return state.set('dashboardIndices', action.dashboardIndices)
-        case types.SET_DASHBOARD_AVALIACOES:
-            console.log('Reducer: SET_DASHBOARD_AVALIACOES')
-            return state.set('dashboardAvaliacoes', action.dashboardAvaliacoes)
+        case types.SET_DASHBOARD_INDEXES:
+            return state.set('dashboardIndexes', action.dashboardIndexes)
+        case types.SET_DASHBOARD_ASSESMENTS:
+            return state.set('dashboardAssesments', action.dashboardAssesments)
         default:
             return state
     }

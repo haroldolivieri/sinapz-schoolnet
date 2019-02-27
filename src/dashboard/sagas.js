@@ -1,35 +1,26 @@
 import { put, call, takeLatest, fork} from 'redux-saga/effects'
-import { getDashboardIndices, getDashboardAvaliacoes } from './services'
-
+import { getDashboardIndexes, getDashboardAssesments } from './services'
 import {
     LOAD_INITAL_DATA,
-    SET_DASHBOARD_INDICES,
-    SET_DASHBOARD_AVALIACOES
+    SET_DASHBOARD_INDEXES,
+    SET_DASHBOARD_ASSESMENTS
 } from './types'
 
 function* fetchInitialData() {
-    console.log('sagas:fetchInitialData')
-    yield fork(fetchDashboardIndices)
-    yield fork(fetchDashboardAvaliacoes)
+    yield fork(fetchDashboardIndexes)
+    yield fork(fetchDashboardAssesments)
 }
 
-function* fetchDashboardIndices() {
-    console.log('sagas:fetchDashboardIndices')
-    const response = yield call(getDashboardIndices)
-    console.log('sagas response Indices:')
-    console.log(response)
-    yield put({ type: SET_DASHBOARD_INDICES, dashboardIndices: response })
+function* fetchDashboardIndexes() {
+    const response = yield call(getDashboardIndexes)
+    yield put({ type: SET_DASHBOARD_INDEXES, dashboardIndexes: response })
 }
 
-function* fetchDashboardAvaliacoes() {
-    console.log('sagas:fetchDashboardAvaliacoes')
-    const response = yield call(getDashboardAvaliacoes)
-    console.log('sagas response Avaliacoes:')
-    console.log(response)
-    yield put({ type: SET_DASHBOARD_AVALIACOES, dashboardAvaliacoes: response })
+function* fetchDashboardAssesments() {
+    const response = yield call(getDashboardAssesments)
+    yield put({ type: SET_DASHBOARD_ASSESMENTS, dashboardAssesments: response })
 }
 
 export default function* dashboardSaga() {
-    console.log('sagas:dashboardSaga')
     yield takeLatest(LOAD_INITAL_DATA, fetchInitialData)
 }

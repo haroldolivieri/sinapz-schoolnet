@@ -2,36 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import '../css/DashboardCard.css'
 
+export const DashboardCard = ({
+                               classes = {},
+                               quantity = 0,
+                               type = 'Tipo desconhecido'
+}) => (
+        <Card className="card">
+            <CardContent  className="card_content">
+                    <b className="highlight">{ quantity }</b>
+                    <b>{ type }</b>
+            </CardContent>
+        </Card>
+);
 
-function SimpleCard(props) {
-
-    const {
-        quantidade,
-        tipo,
-    } = props;
-
-    return (
-        <div class="card" >
-            <Card>
-                <CardContent  class="card_content">
-                    <Typography variant="h1" component="h1" >
-                        <b>{ quantidade }</b>
-                    </Typography>
-                    <Typography variant="h2" component="h2">
-                        <b>{ tipo }</b>
-                    </Typography>
-                </CardContent>
-            </Card>
-        </div>
-    );
-}
-
-SimpleCard.propTypes = {
+DashboardCard.propTypes = {
     classes: PropTypes.object.isRequired,
+    quantity: PropTypes.number,
+    type: PropTypes.string,
 };
 
-export default 
-    SimpleCard;
+export default DashboardCard;

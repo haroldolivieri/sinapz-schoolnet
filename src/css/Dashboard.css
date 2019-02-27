@@ -1,0 +1,12 @@
+.cards {
+    /* Mobile */
+    display: flex;
+    flex-direction:column;
+}
+@media  (min-width: 900px) {
+    .cards {
+        /* Tablet or bigger */
+        display: flex;
+        flex-direction:row;
+    }
+}
