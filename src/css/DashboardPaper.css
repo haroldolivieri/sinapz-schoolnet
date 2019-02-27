@@ -1,13 +1,8 @@
 .paper{
     margin: 0 auto;
-	display: flex !important;
+	display: flex;
     border: 1px solid #ccc;
     flex-direction: row;
     justify-content: space-between;
     padding: 1.5em;
-}
-
-
-.paper_content{
-
 }
