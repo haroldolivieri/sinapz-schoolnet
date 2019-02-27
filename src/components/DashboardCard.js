@@ -9,8 +9,8 @@ export const DashboardCard = ({
                                quantity = 0,
                                type = 'Tipo desconhecido'
 }) => (
-        <Card className="card">
-            <CardContent  className="card_content">
+        <Card class="card">
+            <CardContent  class="card_content">
                     <b className="highlight">{ quantity }</b>
                     <b>{ type }</b>
             </CardContent>
@@ -22,5 +22,3 @@ DashboardCard.propTypes = {
     quantity: PropTypes.number,
     type: PropTypes.string,
 };
-
-export default DashboardCard;

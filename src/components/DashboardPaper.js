@@ -62,7 +62,7 @@ export const DashboardPaper = ({
 }) => (
 
         <Paper className="paper">
-            <div className="paper_content">
+            <div class="paper_content">
                     <b> { type } </b> de <b> { discipline }</b> da <b> { group } </b>
             </div>
             <div className="paper_content">
