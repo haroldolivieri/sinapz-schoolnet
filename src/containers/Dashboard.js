@@ -1,42 +1,46 @@
 import React from 'react';
-import { DashboardCard, DashboardPaper } from '../components'
+import { CardWith2Sentences, PaperWith2Sentences } from '../components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import '../css/Dashboard.css'
 
-export const DashboardIndex = ({
-    quantity = 0,
-    type = 'Unknown',
-}) => (
-        <DashboardCard
-            quantity = { quantity }
-            type = { type }
-        />
-);
-DashboardIndex.propTypes = {
-    quantity: PropTypes.number,
-    type: PropTypes.string,
-};
+function ResolveTextDate( timeToAssesment ) {
+    const now = new Date();
+    const assesmentTimeStamp = (new Date(timeToAssesment)).getTime();
+    const nowTimeStamp = now.getTime();
 
-export const DashboardAssesment = ({
-    type = 'Unknown',
-    discipline = 'Unknown',
-    group = 'Unknown',
-    timeToAssesment = 'Unknown'
-}) => (
-    <DashboardPaper
-        type = { type }
-        discipline = { discipline }
-        group = { group }
-        timeToAssesment = { timeToAssesment }
-    />
-);
-DashboardAssesment.propTypes = {
-    type: PropTypes.string,
-    discipline: PropTypes.string,
-    group: PropTypes.string,
-    timeToAssesment: PropTypes.string,
-};
+    console.log(assesmentTimeStamp)
+    console.log(nowTimeStamp)
+    if (assesmentTimeStamp > nowTimeStamp) {
+        return "Começa em "
+    } else {
+        return "Começou há "
+    }
+}
+
+function ResolveDate( timeToAssesment ) {
+    const now = new Date();
+    const assesmentTimeStamp = (new Date(timeToAssesment)).getTime();
+    const nowTimeStamp = now.getTime();
+   
+    const microSecondsDiff = Math.abs(assesmentTimeStamp - nowTimeStamp );
+    const daysDiff = Math.floor(microSecondsDiff / (1000 * 60 * 60  * 24));
+    if ( daysDiff > 2 ){
+        return ( daysDiff + " dias." );
+    }else if ( daysDiff === 1 ){
+        return ( daysDiff + " dia." );
+    } else{
+        let restTimeStamp = Math.floor(microSecondsDiff - (daysDiff * (1000 * 60 * 60  * 24)));
+        if (restTimeStamp <= (1000 * 60)){
+            return ( "menos de 1 minuto." );
+        }else{
+            const hoursDiff = Math.floor(restTimeStamp / (1000 * 60 * 60 ));
+            restTimeStamp = Math.floor(restTimeStamp - ( hoursDiff * (1000 * 60 * 60)));
+            const minutesDiff = Math.floor(restTimeStamp / (1000 * 60));
+            return ( hoursDiff + "h " + minutesDiff + "m." );
+        }
+    }
+}
 
 const Dashboard = ({
     dashboardIndexes = [],
@@ -45,9 +49,9 @@ const Dashboard = ({
     <div>
         <div className="cards">
             {dashboardIndexes.map(item => (
-                    <DashboardCard
-                        quantity={ item.quantity }
-                        type={ item.type }
+                    <CardWith2Sentences
+                        FirstSentence = { [<b className='highlight'>{ item.quantity }</b>] }
+                        SecondSentence = { [<b>{ item.type }</b>] }
                     />
                 ))}
 
@@ -55,11 +59,9 @@ const Dashboard = ({
         <div>
             <h1>Próximas Avaliações em 24h </h1>
             {dashboardAssesments.map(item => (
-                    <DashboardPaper
-                        type={item.type}
-                        discipline={item.discipline}
-                        group={item.group}
-                        timeToAssesment={item.timeToAssesment}
+                    <PaperWith2Sentences
+                        FirstSentence = {[<b> { item.type } </b>, " de ", <b>{ item.discipline }</b>, " da ", <b>{ item.group }</b>]}
+                        SecondSentence = {[ ResolveTextDate(item.timeToAssesment) ,<b> { ResolveDate(item.timeToAssesment) } </b>]}
                     />
                 ))}
         </div>
