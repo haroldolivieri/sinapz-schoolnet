@@ -3,6 +3,7 @@
 exports[`Responsive Drawer renders correctly 1`] = `
 <WithStyles(Drawer)
   id="drawer"
+  onClose={[Function]}
   open={false}
 >
   <div

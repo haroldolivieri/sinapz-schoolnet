@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFloatingButton renders renders correctly 1`] = `
+<div
+  className="fab"
+>
+  <WithStyles(Fab)
+    buttonRef={[Function]}
+    color="primary"
+    onClick={[Function]}
+  >
+    <pure(AddIcon) />
+  </WithStyles(Fab)>
+  <Popper
+    disablePortal={false}
+    open={false}
+    placement="top-end"
+    transition={true}
+  >
+    <Component />
+  </Popper>
+</div>
+`;
+
+exports[`AddFloatingButton renders renders correctly after click 1`] = `
+<div
+  className="fab"
+>
+  <WithStyles(Fab)
+    buttonRef={[Function]}
+    color="primary"
+    onClick={[Function]}
+  >
+    <pure(AddIcon) />
+  </WithStyles(Fab)>
+  <Popper
+    disablePortal={false}
+    open={true}
+    placement="top-end"
+    transition={true}
+  >
+    <Component />
+  </Popper>
+</div>
+`;

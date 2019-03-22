@@ -4,8 +4,8 @@ import { ResponsiveDrawer, SideDrawer } from '../components'
 import { loadInitalData } from '../menu/actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import '../css/MainLayout.css'
 import SearchInput from '../containers/SearchInput'
+import '../css/MainLayout.css'
 
 export class MainLayout extends Component {
     constructor(props) {
@@ -19,8 +19,8 @@ export class MainLayout extends Component {
         selectedItem: 'dashboard'
     }
 
-    toggleDrawer = open => () => {
-        this.setState({ navDrawerOpened: open })
+    toggleDrawer = () => {
+        this.setState(state => ({ navDrawerOpened: !state.navDrawerOpened }))
     }
 
     renderToolbar() {
@@ -28,7 +28,7 @@ export class MainLayout extends Component {
             <div className="toolbar">
                 <MenuIcon
                     className="only-mobile"
-                    onClick={this.toggleDrawer(true)}
+                    onClick={this.toggleDrawer}
                     aria-label="Open drawer"
                 />
 
