@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 
 describe(BranchList, () => {
 
-  context('with empty branch list', () => {
+  describe('with empty branch list', () => {
     const wrapper = shallow(<BranchList branches={[]} />)
     
     it('should match with snapshot', () => { expect(wrapper).toMatchSnapshot() })
@@ -12,7 +12,7 @@ describe(BranchList, () => {
     it('should has warnning text', () => { expect(wrapper.children().text()).toEqual('Essa rede não tem filiais') })
   })
 
-  context('with branch list', () => {
+  describe('with branch list', () => {
     let branches = [{ id: '1', name: 'madureira', inCharge: 'Hadoldo' }, { id: '2', name: 'Meier', inCharge: 'Paula' }]
     const wrapper = shallow(<BranchList branches={branches} />)
 

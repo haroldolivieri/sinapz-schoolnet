@@ -7,34 +7,34 @@ import { ResponsiveDrawer } from '../components'
 let wrapper = shallow(<MainLayout loadInitalData={function() {}} />)
 
 describe('MainLayout', () => {
-    it('renders correctly', () => {
-        expect(wrapper).toMatchSnapshot()
+  it('renders correctly', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('ResponsiveDrawer', () => {
+    let responsiveDrawer
+    beforeEach(() => (responsiveDrawer = wrapper.find(ResponsiveDrawer)))
+
+    it('starts closed', () => {
+      responsiveDrawer = wrapper.find(ResponsiveDrawer)
+      expect(responsiveDrawer.props().opened).toBeFalsy()
+    })
+  })
+
+  describe('Toolbar', () => {
+    let toolbar
+    beforeEach(() => (toolbar = wrapper.find('.toolbar')))
+
+    it('hamburguer has .only-mobile class', () => {
+      expect(toolbar.find(MenuIcon).hasClass('only-mobile')).toBeTruthy()
     })
 
-    describe('ResponsiveDrawer', () => {
-        let responsiveDrawer
-        beforeEach(() => (responsiveDrawer = wrapper.find(ResponsiveDrawer)))
-
-        it('starts closed', () => {
-            responsiveDrawer = wrapper.find(ResponsiveDrawer)
-            expect(responsiveDrawer.props().opened).toBeFalsy()
-        })
+    it('has logo', () => {
+      expect(toolbar.find('.logo').exists()).toBeTruthy()
     })
 
-    describe('Toolbar', () => {
-        let toolbar
-        beforeEach(() => (toolbar = wrapper.find('.toolbar')))
-
-        it('hamburguer has .only-mobile class', () => {
-            expect(toolbar.find(MenuIcon).hasClass('only-mobile')).toBeTruthy()
-        })
-
-        it('has logo', () => {
-            expect(toolbar.find('.logo').exists()).toBeTruthy()
-        })
-
-        it('has search input', () => {
-            expect(toolbar.find('.search').exists()).toBeTruthy()
-        })
+    it('has search input', () => {
+      expect(toolbar.find('.search').exists()).toBeTruthy()
     })
+  })
 })

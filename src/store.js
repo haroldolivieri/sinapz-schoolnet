@@ -9,11 +9,11 @@ export const history = createBrowserHistory()
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
-    createRootReducer(history),
-    compose(
-        applyMiddleware(routerMiddleware(history), sagaMiddleware),
-        window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
+  createRootReducer(history),
+  compose(
+    applyMiddleware(routerMiddleware(history), sagaMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 )
 
 sagaMiddleware.run(rootSaga)

@@ -8,77 +8,77 @@ import { withRouter } from 'react-router'
 import '../css/SideDrawer.css'
 
 export const DrawerItem = ({
-    text = 'Unknown',
-    icon = <ItemIcon />,
-    action = function() {}
+  text = 'Unknown',
+  icon = <ItemIcon />,
+  action = function() {}
 }) => (
-    <ListItem id="list-item" button key={text} onClick={action}>
-        <ListItemIcon>{icon}</ListItemIcon>
-        <p className="item-text">{text}</p>
-    </ListItem>
+  <ListItem id="list-item" button key={text} onClick={action}>
+    <ListItemIcon>{icon}</ListItemIcon>
+    <p className="item-text">{text}</p>
+  </ListItem>
 )
 DrawerItem.propTypes = {
-    text: PropTypes.string,
-    icon: PropTypes.element,
-    action: PropTypes.func
+  text: PropTypes.string,
+  icon: PropTypes.element,
+  action: PropTypes.func
 }
 
 export const ItemIcon = ({ img = 'undefined.svg', alt = '' }) => (
-    <img src={require(`../images/${img}`)} alt={alt} />
+  <img src={require(`../images/${img}`)} alt={alt} />
 )
 
 export const SideDrawer = ({
-    history,
-    menuItems = [],
-    schoolnetInfo = {
-        name: 'Anonymous',
-        description: 'Descrição da escola',
-        photo:
+  history,
+  menuItems = [],
+  schoolnetInfo = {
+    name: 'Anonymous',
+    description: 'Descrição da escola',
+    photo:
             'https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765'
-    }
+  }
 }) => {
-    const handleItemSelected = pathTo => {
-        history.push(pathTo)
-    }
+  const handleItemSelected = pathTo => {
+    history.push(pathTo)
+  }
 
-    const AvatarImage = ({ url, alt = '' }) => (
-        <div className="avatar-mask">
-            <img src={url} className="avatar" alt={alt} />
-        </div>
-    )
+  const AvatarImage = ({ url, alt = '' }) => (
+    <div className="avatar-mask">
+      <img src={url} className="avatar" alt={alt} />
+    </div>
+  )
 
-    return (
-        <div className="drawer">
-            <AvatarImage url={schoolnetInfo.photo} alt={schoolnetInfo.name} />
-            <span className="title">{schoolnetInfo.name}</span>
-            <span className="sub-title">{schoolnetInfo.description}</span>
-            <div className="list">
-                {menuItems.map(item => (
-                    <DrawerItem
-                        id="drawer-item"
-                        key={item.name}
-                        text={item.name}
-                        icon={<ItemIcon img={item.icon} alt={item.name} />}
-                        action={handleItemSelected.bind(this, item.path)}
-                    />
-                ))}
-            </div>
-        </div>
-    )
+  return (
+    <div className="drawer">
+      <AvatarImage url={schoolnetInfo.photo} alt={schoolnetInfo.name} />
+      <span className="title">{schoolnetInfo.name}</span>
+      <span className="sub-title">{schoolnetInfo.description}</span>
+      <div className="list">
+        {menuItems.map(item => (
+          <DrawerItem
+            id="drawer-item"
+            key={item.name}
+            text={item.name}
+            icon={<ItemIcon img={item.icon} alt={item.name} />}
+            action={handleItemSelected.bind(this, item.path)}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }
 
 const mapStateToProps = state => ({
-    schoolnetInfo: state.menu.get('schoolnetInfo'),
-    menuItems: state.menu.get('menuItems')
+  schoolnetInfo: state.menu.get('schoolnetInfo'),
+  menuItems: state.menu.get('menuItems')
 })
 
 export default compose(
-    withRouter,
-    connect(mapStateToProps)
+  withRouter,
+  connect(mapStateToProps)
 )(SideDrawer)
 
 SideDrawer.propTypes = {
-    history: PropTypes.object,
-    menuItems: PropTypes.array,
-    schoolnetInfo: PropTypes.object
+  history: PropTypes.object,
+  menuItems: PropTypes.array,
+  schoolnetInfo: PropTypes.object
 }

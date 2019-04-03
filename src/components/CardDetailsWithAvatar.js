@@ -5,7 +5,7 @@ import '../css/CardDetailsWithAvatar.css'
 import PropTypes from 'prop-types'
 import { extractInitials } from '../util/handlerWithNames'
 
-export const CardDetailsWithAvatar = ({branch}) => {
+export const CardDetailsWithAvatar = ({ branch }) => {
   return (
     <Card key={branch.id} className="card-container">
       <div className="avatar-item">

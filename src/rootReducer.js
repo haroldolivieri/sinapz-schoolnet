@@ -4,8 +4,8 @@ import menuReducer from './menu/reducer'
 import searchBarReducer from './searchbar/reducer'
 
 export default history =>
-    combineReducers({
-        router: connectRouter(history),
-        menu: menuReducer,
-        searchBar: searchBarReducer
-    })
+  combineReducers({
+    router: connectRouter(history),
+    menu: menuReducer,
+    searchBar: searchBarReducer
+  })
