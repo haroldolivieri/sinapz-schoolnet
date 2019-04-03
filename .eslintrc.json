@@ -1,0 +1,83 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest/globals": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "rules": {
+        "react/prop-types": 0,
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+        "no-irregular-whitespace": "error",
+        "no-multi-spaces": "error",
+        "no-console": 0,
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-mixed-spaces-and-tabs": [
+            2,
+            "smart-tabs"
+        ],
+        "no-trailing-spaces": [
+            2,
+            {
+                "skipBlankLines": true
+            }
+        ],
+        "no-multiple-empty-lines": [
+            2,
+            {
+                "max": 1
+            }
+        ],
+        "comma-style": [
+            2,
+            "last"
+        ],
+        "indent": [
+            2,
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ]
+    }
+}

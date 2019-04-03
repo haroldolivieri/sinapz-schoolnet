@@ -23,4 +23,10 @@ We should follow this patterns:
 Install the dependencies with `npm install`
 Start the server with `npm run start`
 
+# How to run lint 
+npm run lint
+
+# fix all lint issues
+npm run lint-fix
+
 Project will be accessible via `http://localhost:3000`
