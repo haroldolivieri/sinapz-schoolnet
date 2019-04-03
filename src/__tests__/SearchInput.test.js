@@ -4,99 +4,99 @@ import { shallow } from 'enzyme'
 import { TextField } from '@material-ui/core'
 
 const results = [
-    {
-        id: '1',
-        type: 'TEACHER',
-        name: 'Osnir',
-        description: 'Professor de Geografia',
-        photoUrl: ''
-    },
-    {
-        id: '1',
-        type: 'BRANCH',
-        name: 'Tijuca',
-        description: 'Filial da Tijuca',
-        photoUrl: ''
-    }
+  {
+    id: '1',
+    type: 'TEACHER',
+    name: 'Osnir',
+    description: 'Professor de Geografia',
+    photoUrl: ''
+  },
+  {
+    id: '1',
+    type: 'BRANCH',
+    name: 'Tijuca',
+    description: 'Filial da Tijuca',
+    photoUrl: ''
+  }
 ]
 
 jest.useFakeTimers()
 
 describe('SearchInput', () => {
-    it('renders correctly for empty results', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={[]} />
-        )
+  it('renders correctly for empty results', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={[]} />
+    )
 
-        expect(wrapper).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('renders correctly for existing results', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={results} />
+    )
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('starts with results dialog closed', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={results} />
+    )
+
+    expect(wrapper.state().searchResultsOpened).toBeFalsy()
+  })
+
+  it('renders the right amount of result items', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={results} />
+    )
+
+    wrapper.setState({ searchResultsOpened: true })
+
+    expect(wrapper.find(SearchResultItem)).toHaveLength(2)
+  })
+
+  it('call action on text changed', () => {
+    const mockAction = jest.fn()
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={mockAction} results={[]} />
+    )
+
+    //before debounce
+    wrapper.find(TextField).simulate('change', {
+      target: { value: 'O' }
     })
-
-    it('renders correctly for existing results', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={results} />
-        )
-
-        expect(wrapper).toMatchSnapshot()
+    wrapper.find(TextField).simulate('change', {
+      target: { value: 'Os' }
     })
-
-    it('starts with results dialog closed', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={results} />
-        )
-
-        expect(wrapper.state().searchResultsOpened).toBeFalsy()
+    wrapper.find(TextField).simulate('change', {
+      target: { value: 'Osn' }
     })
+    jest.runAllTimers()
 
-    it('renders the right amount of result items', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={results} />
-        )
+    expect(mockAction.mock.calls).toHaveLength(1)
+  })
 
-        wrapper.setState({ searchResultsOpened: true })
+  it('should show dialog is toggled if onBlur is tapped', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={[]} />
+    )
+    wrapper.setState({ searchResultsOpened: true })
 
-        expect(wrapper.find(SearchResultItem)).toHaveLength(2)
-    })
+    wrapper.find(TextField).simulate('blur')
 
-    it('call action on text changed', () => {
-        const mockAction = jest.fn()
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={mockAction} results={[]} />
-        )
+    expect(wrapper.state().searchResultsOpened).toBeFalsy()
+  })
 
-        //before debounce
-        wrapper.find(TextField).simulate('change', {
-            target: { value: 'O' }
-        })
-        wrapper.find(TextField).simulate('change', {
-            target: { value: 'Os' }
-        })
-        wrapper.find(TextField).simulate('change', {
-            target: { value: 'Osn' }
-        })
-        jest.runAllTimers()
+  it('should show dialog is toggled if onFocus is tapped', () => {
+    const wrapper = shallow(
+      <SearchInput fetchSearchResults={() => {}} results={[]} />
+    )
+    wrapper.setState({ searchResultsOpened: false })
 
-        expect(mockAction.mock.calls.length).toBe(1)
-    })
+    wrapper.find(TextField).simulate('focus')
 
-    it('should show dialog is toggled if onBlur is tapped', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={[]} />
-        )
-        wrapper.setState({ searchResultsOpened: true })
-
-        wrapper.find(TextField).simulate('blur')
-
-        expect(wrapper.state().searchResultsOpened).toBeFalsy()
-    })
-
-    it('should show dialog is toggled if onFocus is tapped', () => {
-        const wrapper = shallow(
-            <SearchInput fetchSearchResults={() => {}} results={[]} />
-        )
-        wrapper.setState({ searchResultsOpened: false })
-
-        wrapper.find(TextField).simulate('focus')
-
-        expect(wrapper.state().searchResultsOpened).toBeTruthy()
-    })
+    expect(wrapper.state().searchResultsOpened).toBeTruthy()
+  })
 })

@@ -12,135 +12,135 @@ import Paper from '@material-ui/core/Paper'
 import '../css/SearchInput.css'
 
 export const SearchResultItem = ({
-    name = 'Unknown',
-    description = 'Description',
-    photoUrl = 'https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765',
-    onClick = function() {},
-    onClose = function() {}
+  name = 'Unknown',
+  description = 'Description',
+  photoUrl = 'https://cdn.shopify.com/s/files/1/0539/4361/products/anonymous-guy-fawkes-anarchy-decal.jpg?v=1410346765',
+  onClick = function() {},
+  onClose = function() {}
 }) => (
-    <Paper square>
-        <ListItem
-            className="result-item"
-            id="list-item"
-            button
-            onClick={() => {
-                onClick()
-                onClose()
-            }}
-        >
-            <ListItemIcon className="result-icon-mask">
-                <img className="result-icon" src={photoUrl} alt={name} />
-            </ListItemIcon>
-            <div>
-                <p className="result-name">{name}</p>
-                <p className="result-description">{description}</p>
-            </div>
-        </ListItem>
-    </Paper>
+  <Paper square>
+    <ListItem
+      className="result-item"
+      id="list-item"
+      button
+      onClick={() => {
+        onClick()
+        onClose()
+      }}
+    >
+      <ListItemIcon className="result-icon-mask">
+        <img className="result-icon" src={photoUrl} alt={name} />
+      </ListItemIcon>
+      <div>
+        <p className="result-name">{name}</p>
+        <p className="result-description">{description}</p>
+      </div>
+    </ListItem>
+  </Paper>
 )
 SearchResultItem.propTypes = {
-    name: PropTypes.string,
-    description: PropTypes.string,
-    photoUrl: PropTypes.string,
-    action: PropTypes.func
+  name: PropTypes.string,
+  description: PropTypes.string,
+  photoUrl: PropTypes.string,
+  action: PropTypes.func
 }
 
 export class SearchInput extends Component {
-    constructor(props) {
-        super(props)
-        this.autocompleteSearchDebounced = debounce(
-            500,
-            this.autocompleteSearch
-        )
-    }
+  constructor(props) {
+    super(props)
+    this.autocompleteSearchDebounced = debounce(
+      500,
+      this.autocompleteSearch
+    )
+  }
 
     state = {
-        searchInput: '',
-        searchResultsOpened: false
+      searchInput: '',
+      searchResultsOpened: false
     }
 
     onInputChanged = event => {
-        this.setStateForInput(event.target.value)
+      this.setStateForInput(event.target.value)
     }
 
-    onResultClicked = (type, id) => {
-        this.clearInput()
+    onResultClicked = (_type, _id) => {
+      this.clearInput()
     }
 
     clearInput = () => {
-        this.setState({ searchInput: '' }, () => {
-            this.autocompleteSearch(this.state.searchInput)
-        })
+      this.setState({ searchInput: '' }, () => {
+        this.autocompleteSearch(this.state.searchInput)
+      })
     }
 
     setStateForInput = searchInput => {
-        this.setState({ searchInput }, () => {
-            this.autocompleteSearchDebounced(this.state.searchInput)
-        })
+      this.setState({ searchInput }, () => {
+        this.autocompleteSearchDebounced(this.state.searchInput)
+      })
     }
 
     autocompleteSearch = input => {
-        this.props.fetchSearchResults(input)
+      this.props.fetchSearchResults(input)
     }
 
     toggleResultsOpened = () => {
-        this.setState(state => ({
-            searchResultsOpened: !state.searchResultsOpened
-        }))
+      this.setState(state => ({
+        searchResultsOpened: !state.searchResultsOpened
+      }))
     }
 
     render() {
-        return (
-            <div>
-                <TextField
-                    className="input-search"
-                    fullWidth={true}
-                    value={this.state.searchInput}
-                    onChange={this.onInputChanged}
-                    onFocus={this.toggleResultsOpened}
-                    onBlur={this.toggleResultsOpened}
-                    label="Busque por alunos, professores e filiais"
-                    InputProps={{
-                        endAdornment: <SearchRounded />
-                    }}
-                />
+      return (
+        <div>
+          <TextField
+            className="input-search"
+            fullWidth={true}
+            value={this.state.searchInput}
+            onChange={this.onInputChanged}
+            onFocus={this.toggleResultsOpened}
+            onBlur={this.toggleResultsOpened}
+            label="Busque por alunos, professores e filiais"
+            InputProps={{
+              endAdornment: <SearchRounded />
+            }}
+          />
 
-                {this.state.searchResultsOpened &&
+          {this.state.searchResultsOpened &&
                     this.props.results.length > 0 && (
-                        <div className="results">
-                            {this.props.results.map(item => (
-                                <SearchResultItem
-                                    key={item.name}
-                                    name={item.name}
-                                    description={item.description}
-                                    onClose={this.toggleResultsOpened}
-                                    onClick={this.onResultClicked.bind(
-                                        this,
-                                        item.type,
-                                        item.id
-                                    )}
-                                />
-                            ))}
-                        </div>
-                    )}
+            <div className="results">
+              {this.props.results.map(item => (
+                <SearchResultItem
+                  key={item.name}
+                  name={item.name}
+                  description={item.description}
+                  onClose={this.toggleResultsOpened}
+                  onClick={this.onResultClicked.bind(
+                    this,
+                    item.type,
+                    item.id
+                  )}
+                />
+              ))}
             </div>
-        )
+          )}
+        </div>
+      )
     }
 }
 
 const mapStateToProps = state => ({
-    results: state.searchBar.get('searchResults')
+  results: state.searchBar.get('searchResults')
 })
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ fetchSearchResults }, dispatch)
+  bindActionCreators({ fetchSearchResults }, dispatch)
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SearchInput)
 
 SearchInput.propTypes = {
-    results: PropTypes.array.isRequired,
-    fetchSearchResults: PropTypes.func.isRequired
+  results: PropTypes.array.isRequired,
+  fetchSearchResults: PropTypes.func.isRequired
 }
